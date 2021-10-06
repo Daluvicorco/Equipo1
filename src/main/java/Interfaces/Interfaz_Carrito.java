@@ -10,7 +10,7 @@ package Interfaces;
  * @author luisc
  */
 public class Interfaz_Carrito extends javax.swing.JFrame {
-
+    private Interfaz_Inicio ini;
     /**
      * Creates new form Interfaz_Carrito
      */
@@ -27,6 +27,7 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaParcelasElegidas = new javax.swing.JList<>();
         tituloVentana = new javax.swing.JLabel();
@@ -35,6 +36,17 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
         botonReservar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
         botonEliminarDelCarro = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,8 +67,18 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
         precioReserva.setText("148$");
 
         botonReservar.setText("Reservar");
+        botonReservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonReservarActionPerformed(evt);
+            }
+        });
 
         botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
 
         botonEliminarDelCarro.setText("Eliminar");
         botonEliminarDelCarro.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +148,20 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonEliminarDelCarroActionPerformed
 
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+        Interfaz_Reserva res = new Interfaz_Reserva();
+        res.setVisible(true);
+        this.setVisible(false);
+                
+    }//GEN-LAST:event_botonCancelarActionPerformed
+
+    private void botonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservarActionPerformed
+        ini = new Interfaz_Inicio();
+        ini.setLocationRelativeTo(this);
+        ini.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonReservarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -165,6 +201,7 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonEliminarDelCarro;
     private javax.swing.JButton botonReservar;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaParcelasElegidas;
     private javax.swing.JLabel precioReserva;
