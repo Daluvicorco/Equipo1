@@ -51,6 +51,11 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         jButton2.setText("Salir");
@@ -96,15 +101,22 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
+        Interfaz_Carrito carr = new Interfaz_Carrito();
+        carr.setVisible(true);
         
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         Interfaz_Inicio ii = new Interfaz_Inicio();
+        this.setVisible(false);
         ii.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela();
+        sel.setVisible(true);
+    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments
