@@ -104,9 +104,11 @@ public class Sin_reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela();
-        sel.setVisible(true);
+        if(!evt.getValueIsAdjusting()){
+            Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela();
+            sel.setVisible(true);
         //this.setVisible(false);
+        }
     }//GEN-LAST:event_jList1ValueChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

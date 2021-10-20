@@ -114,8 +114,10 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela();
-        sel.setVisible(true);
+        if(!evt.getValueIsAdjusting()){
+            Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela();
+            sel.setVisible(true);
+        }
     }//GEN-LAST:event_jList1ValueChanged
 
     /**
