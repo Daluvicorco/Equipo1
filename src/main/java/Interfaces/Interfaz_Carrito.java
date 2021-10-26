@@ -10,7 +10,7 @@ package Interfaces;
  * @author luisc
  */
 public class Interfaz_Carrito extends javax.swing.JFrame {
-    private Interfaz_Inicio ini;
+    private Interfaz_Cliente ini;
     /**
      * Creates new form Interfaz_Carrito
      */
@@ -156,7 +156,7 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservarActionPerformed
-        ini = new Interfaz_Inicio();
+        ini = new Interfaz_Cliente();
         ini.setLocationRelativeTo(this);
         ini.setVisible(true);
         this.setVisible(false);
@@ -190,11 +190,13 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interfaz_Carrito().setVisible(true);
             }
         });
+        */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

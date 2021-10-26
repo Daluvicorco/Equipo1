@@ -9,7 +9,7 @@ package Interfaces;
  * @author nengo
  */
 public class Sin_reserva extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Sin_reserva
      */
@@ -98,7 +98,7 @@ public class Sin_reserva extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Interfaz_Inicio inicio = new Interfaz_Inicio();
+        Interfaz_Cliente inicio = new Interfaz_Cliente();
         inicio.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -144,11 +144,13 @@ public class Sin_reserva extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Sin_reserva().setVisible(true);
             }
         });
+        */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

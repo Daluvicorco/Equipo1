@@ -5,17 +5,21 @@
  */
 package Interfaces;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import modelo.Camping;
+
 /**
  *
  * @author alumno
  */
 public class Interfaz_Reserva extends javax.swing.JFrame {
-
     /**
      * Creates new form Interfaz_Reserva
      */
     public Interfaz_Reserva() {
         initComponents();
+       
     }
 
     /**
@@ -29,7 +33,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lista_parcelas = new javax.swing.JList<>();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,17 +50,17 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        lista_parcelas.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        lista_parcelas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jList1ValueChanged(evt);
+                lista_parcelasValueChanged(evt);
             }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(lista_parcelas);
 
         jButton2.setText("Salir");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,17 +112,17 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        Interfaz_Inicio ii = new Interfaz_Inicio();
+        Interfaz_Cliente ii = new Interfaz_Cliente();
         this.setVisible(false);
         ii.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+    private void lista_parcelasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_parcelasValueChanged
         if(!evt.getValueIsAdjusting()){
             Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela();
             sel.setVisible(true);
         }
-    }//GEN-LAST:event_jList1ValueChanged
+    }//GEN-LAST:event_lista_parcelasValueChanged
 
     /**
      * @param args the command line arguments
@@ -146,19 +150,21 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Interfaz_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+           
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interfaz_Reserva().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> lista_parcelas;
     // End of variables declaration//GEN-END:variables
 }
