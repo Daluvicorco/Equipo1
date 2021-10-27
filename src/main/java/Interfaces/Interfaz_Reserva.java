@@ -8,7 +8,6 @@ package Interfaces;
 import controlador.Controlador_Camping;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import modelo.Camping;
 
 /**
  *
@@ -31,7 +30,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
         lista_parcelas.setModel(modeloParcelas);
     }
     
-    public Interfaz_Reserva(Camping camp,Object parcela)
+    public Interfaz_Reserva(Controlador_Camping camp,Object parcela)
     {
         initComponents();
         c=camp;

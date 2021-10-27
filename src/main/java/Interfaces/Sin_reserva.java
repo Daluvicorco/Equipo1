@@ -5,7 +5,7 @@
 package Interfaces;
 
 
-import modelo.Camping;
+import controlador.Controlador_Camping;
 
 /**
  *
@@ -13,15 +13,14 @@ import modelo.Camping;
  */
 public class Sin_reserva extends javax.swing.JFrame {
 
-    private Camping c;
+    private Controlador_Camping c;
 
     /**
      * Creates new form Sin_reserva
      */
-    public Sin_reserva(Camping camp) {
+    public Sin_reserva(Controlador_Camping camp) {
         initComponents();
         c=camp;
-        c.cargarDatos();
     }
 
     /**

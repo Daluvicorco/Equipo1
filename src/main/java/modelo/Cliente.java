@@ -16,7 +16,7 @@ public class Cliente {
     private String nombre;
     private String dni;
     private float metrosTienda;
-    private ArrayList<Reserva> reservas;
+    private Reserva reserva;
     
     public Cliente(String n, String d, float mT) {
         nombre = n;
@@ -40,5 +40,9 @@ public class Cliente {
     }
     public void setMetros(float nuevosMetros) {
         metrosTienda = nuevosMetros;
+    }
+    
+    public Reserva getReserva() {
+        return reserva;
     }
 }

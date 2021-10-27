@@ -16,7 +16,7 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz_IniciarSesion
      */
-    Controlador_Camping c;
+    private Controlador_Camping c;
     public Interfaz_IniciarSesion() {
         initComponents();
         c = new Controlador_Camping();
