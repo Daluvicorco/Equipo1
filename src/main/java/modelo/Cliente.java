@@ -6,6 +6,8 @@
  */
 package modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Usuario
@@ -14,6 +16,7 @@ public class Cliente {
     private String nombre;
     private String dni;
     private float metrosTienda;
+    private ArrayList<Reserva> reservas;
     
     public Cliente(String n, String d, float mT) {
         nombre = n;
