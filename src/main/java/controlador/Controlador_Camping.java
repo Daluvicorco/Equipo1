@@ -8,7 +8,7 @@ package controlador;
 import data.Detalles_Parcela;
 import java.util.ArrayList;
 import modelo.Camping;
-import modelo.Reserva;
+import modelo.Parcela;
 
 /**
  *
