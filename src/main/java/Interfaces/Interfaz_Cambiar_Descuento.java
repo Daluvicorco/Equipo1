@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
 import static java.lang.Float.parseFloat;
 import modelo.Camping;
 
@@ -14,13 +15,13 @@ import modelo.Camping;
  */
 public class Interfaz_Cambiar_Descuento extends javax.swing.JFrame {
 
-    private Camping camp;
+    private Controlador_Camping c;
     /**
      * Creates new form Interfaz_Cambiar_Descuento
      */
-    public Interfaz_Cambiar_Descuento(Camping c) {
+    public Interfaz_Cambiar_Descuento(Controlador_Camping camp) {
         initComponents();
-        camp = c;
+        c = camp;
     }
 
     /**

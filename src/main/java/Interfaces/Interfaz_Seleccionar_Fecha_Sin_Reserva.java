@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
 import modelo.Camping;
 
 /**
@@ -13,13 +14,13 @@ import modelo.Camping;
  */
 public class Interfaz_Seleccionar_Fecha_Sin_Reserva extends javax.swing.JFrame {
 
-    private Camping camp;
+    private Controlador_Camping c;
     /**
      * Creates new form Interfaz_Seleccionar_Fecha_Sin_Reserva
      */
-    public Interfaz_Seleccionar_Fecha_Sin_Reserva(Camping c) {
+    public Interfaz_Seleccionar_Fecha_Sin_Reserva(Controlador_Camping camp) {
         initComponents();
-        camp = c;
+        c = camp;
     }
 
     /**
@@ -107,7 +108,7 @@ public class Interfaz_Seleccionar_Fecha_Sin_Reserva extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
-        Interfaz_Gestor intgest = new Interfaz_Gestor(camp);
+        Interfaz_Gestor intgest = new Interfaz_Gestor(c);
         intgest.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -117,7 +118,7 @@ public class Interfaz_Seleccionar_Fecha_Sin_Reserva extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        Sin_reserva sinres = new Sin_reserva(camp);
+        Sin_reserva sinres = new Sin_reserva(c);
         sinres.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

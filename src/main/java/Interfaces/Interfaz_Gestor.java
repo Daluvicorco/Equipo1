@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
 import modelo.Camping;
 
 /**
@@ -16,10 +17,10 @@ public class Interfaz_Gestor extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz_Gestor
      */
-    private Camping camp;
-    public Interfaz_Gestor(Camping c) {
+    private Controlador_Camping c;
+    public Interfaz_Gestor(Controlador_Camping camp) {
         initComponents();
-        camp = c;
+        c = camp;
     }
 
     /**
@@ -92,7 +93,7 @@ public class Interfaz_Gestor extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
-        Interfaz_Seleccionar_Fecha_Sin_Reserva intsinres = new Interfaz_Seleccionar_Fecha_Sin_Reserva(camp);
+        Interfaz_Seleccionar_Fecha_Sin_Reserva intsinres = new Interfaz_Seleccionar_Fecha_Sin_Reserva(c);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -100,7 +101,7 @@ public class Interfaz_Gestor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Interfaz_Cambiar_Descuento desc = new Interfaz_Cambiar_Descuento(camp);
+        Interfaz_Cambiar_Descuento desc = new Interfaz_Cambiar_Descuento(c);
         desc.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
