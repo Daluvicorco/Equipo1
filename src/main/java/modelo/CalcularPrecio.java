@@ -26,8 +26,8 @@ public class CalcularPrecio {
         int diasEstancia = diaSal - diaEnt;
         
         if(diasEstancia >= 15) {
-          return parcela.getPrecio_dia() * parcela.getDescuento_parcela();
+          return diasEstancia * parcela.getPrecio_dia() * parcela.getDescuento_parcela();
         }
-        return parcela.getPrecio_dia();
+        return diasEstancia * parcela.getPrecio_dia();
     }
 }

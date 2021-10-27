@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaces;
-
 /**
  *
  * @author nengo
  */
 public class Sin_reserva extends javax.swing.JFrame {
+    
+    private modelo.Parcela[] parcelas;
     
     /**
      * Creates new form Sin_reserva

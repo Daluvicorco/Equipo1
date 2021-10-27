@@ -17,5 +17,5 @@ public class Reserva{
     private Date fecha_real_entrada;
     private Date fecha_real_salida;
     private Parcela parcela_reservada;
-    //private Cliente cliente_reserva;
+    private Cliente cliente_reserva;
 }
