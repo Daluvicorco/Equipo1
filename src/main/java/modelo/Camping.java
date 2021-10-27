@@ -16,6 +16,7 @@ public class Camping {
     private ArrayList<Parcela> parcelas = new ArrayList<Parcela>(); 
     private Cliente cliente;
     private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+    private ArrayList<Parcela> carrito = new ArrayList<Parcela>();
     
     public Camping(){
         this.cargarDatos();
@@ -34,23 +35,12 @@ public class Camping {
         
     }
     
-    public ArrayList getParcelas()
+    public ArrayList<Parcela> getParcelas()
     {
-        ArrayList parcelas_noreservadas = new ArrayList();
-        
-        for(int i =0;i<parcelas.size();i++)
-        {
-            if(!parcelas.get(i).estaReservada())
-                parcelas_noreservadas.add(parcelas.get(i));
-        }
-        return parcelas_noreservadas;
+        return parcelas;
     }
     
-    public Detalles_Parcela consultarParcela(Object p)
-    {
-        Parcela par = (Parcela)p;
-        return par.consultarParcela();
-    }
+
     public void reservarParcela(Object p)
     {
         Parcela par = (Parcela)p;
@@ -65,6 +55,11 @@ public class Camping {
     public Cliente getCliente()
     {
         return cliente;
+    }
+    
+    public void addCarrito(Object parcela)
+    {
+        carrito.add((Parcela)parcela);
     }
 }
 

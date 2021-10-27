@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
 import modelo.Camping;
 
 /**
@@ -13,11 +14,11 @@ import modelo.Camping;
  */
 public class Interfaz_Carrito extends javax.swing.JFrame {
     private Interfaz_Cliente ini;
-    private Camping c;
+    private Controlador_Camping c;
     /**
      * Creates new form Interfaz_Carrito
      */
-    public Interfaz_Carrito(Camping camp) {
+    public Interfaz_Carrito(Controlador_Camping camp) {
         initComponents();
         c = camp;
     }

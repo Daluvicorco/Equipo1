@@ -4,20 +4,20 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
 import data.Detalles_Parcela;
-import modelo.Camping;
 
 /**
  *
  * @author nengo
  */
 public class Interfaz_Select_Parcela extends javax.swing.JFrame {
-    private Camping c;
+    private Controlador_Camping c;
     private Object parcela;
     /**
      * Creates new form Interfaz_Select_Parcela
      */
-    public Interfaz_Select_Parcela(Camping camp,Object _parcela) {
+    public Interfaz_Select_Parcela(Controlador_Camping camp,Object _parcela) {
         initComponents();
         parcela = _parcela;
         c = camp;
@@ -40,7 +40,7 @@ public class Interfaz_Select_Parcela extends javax.swing.JFrame {
         etiqueta_metros.setText(met);
     }
     
-        public Interfaz_Select_Parcela(Camping camp) {
+        public Interfaz_Select_Parcela(Controlador_Camping camp) {
         initComponents();
         c = camp;
     }
