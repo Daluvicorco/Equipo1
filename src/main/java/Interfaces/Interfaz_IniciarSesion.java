@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
 import modelo.Camping;
 
 /**
@@ -12,13 +13,13 @@ import modelo.Camping;
  * @author luisc
  */
 public class Interfaz_IniciarSesion extends javax.swing.JFrame {
-    private Camping c;
     /**
      * Creates new form Interfaz_IniciarSesion
      */
+    Controlador_Camping c;
     public Interfaz_IniciarSesion() {
         initComponents();
-        c = new Camping();
+        c = new Controlador_Camping();
         setLocationRelativeTo(this);
     }
 

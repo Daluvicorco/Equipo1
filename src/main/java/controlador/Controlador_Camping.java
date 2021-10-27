@@ -5,10 +5,17 @@
  */
 package controlador;
 
+import modelo.Camping;
+
 /**
  *
  * @author luisc
  */
 public class Controlador_Camping{
+    Camping c;
+    
+    public Controlador_Camping() {
+        c = new Camping();
+    }
     
 }
