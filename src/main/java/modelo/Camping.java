@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class Camping {
     private ArrayList<Parcela> parcelas = new ArrayList<Parcela>(); 
     private Cliente cliente;
+    private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
     
     public Camping(){
         this.cargarDatos();
@@ -56,9 +57,14 @@ public class Camping {
         //parcelas.remove(par);
     }
     
-    public void setCliente()
+    public void setCliente(Cliente c)
     {
-        Cliente c;
+        this.cliente = c;
+    }
+    
+    public Cliente getCliente()
+    {
+        return cliente;
     }
 }
 

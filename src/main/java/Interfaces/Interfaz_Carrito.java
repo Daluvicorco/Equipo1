@@ -40,6 +40,7 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
         botonReservar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
         botonEliminarDelCarro = new javax.swing.JButton();
+        InfoLabel = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -91,6 +92,8 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
             }
         });
 
+        InfoLabel.setText("Seleccione las parcelas que desea reservar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,7 +101,6 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tituloVentana)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,33 +118,37 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
                                             .addComponent(botonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botonEliminarDelCarro)))))
-                .addContainerGap(85, Short.MAX_VALUE))
+                                .addComponent(botonEliminarDelCarro)))
+                        .addGap(111, 111, 111))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(InfoLabel)
+                        .addComponent(tituloVentana)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addComponent(InfoLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(precioReserva))
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
                                 .addComponent(botonReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonEliminarDelCarro)))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                                .addGap(131, 131, 131)
+                                .addComponent(botonEliminarDelCarro))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,10 +166,16 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservarActionPerformed
-        ini = new Interfaz_Cliente(c);
-        ini.setLocationRelativeTo(this);
-        ini.setVisible(true);
-        this.setVisible(false);
+        // Comprobar tamaño de la tienda
+        if(c.getCliente().getMetros() <= c.getCliente().getMetros()){
+            ini = new Interfaz_Cliente(c);
+            ini.setLocationRelativeTo(this);
+            ini.setVisible(true);
+            this.setVisible(false);
+        } else {
+            // Lanzar interfaz de error
+            InfoLabel.setText("El tamaño de las tiendas es mayor que las parcelas seleccionadas");
+        }
     }//GEN-LAST:event_botonReservarActionPerformed
 
     /**
@@ -204,6 +216,7 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel InfoLabel;
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonEliminarDelCarro;
     private javax.swing.JButton botonReservar;
