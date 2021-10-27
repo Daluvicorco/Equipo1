@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import data.Detalles_Parcela;
+
 /**
  *
  * @author luisc
@@ -17,7 +19,6 @@ public class Parcela
     private float precio_dia;
     private float descuento_parcela;
     private Reserva reservada;
-    //private Cliente propietario;
 
     public Parcela(int identificador, float metros_cuadrados, boolean tiene_luz, float precio_dia, float descuento_parcela) {
         this.identificador = identificador;
@@ -25,6 +26,7 @@ public class Parcela
         this.tiene_luz = tiene_luz;
         this.precio_dia = precio_dia;
         this.descuento_parcela = descuento_parcela;
+        reservada = null;
     }
 
     public int getIdentificador() {
@@ -67,6 +69,15 @@ public class Parcela
         this.descuento_parcela = descuento_parcela;
     }
 
+    public Reserva getReservada() {
+        return reservada;
+    }
+
+    public void setReservada(Reserva reservada) {
+        this.reservada = reservada;
+    }
+    
+    
     @Override
     public String toString() {
         String s= "Parcela{" + "Metros cuadrados=" + metros_cuadrados + ", Luz= ";
@@ -78,4 +89,17 @@ public class Parcela
         return s;
     }
     
+    public Detalles_Parcela consultarParcela()
+    {
+        Detalles_Parcela detalles = new Detalles_Parcela(identificador,metros_cuadrados,tiene_luz,precio_dia,descuento_parcela);
+        return detalles;
+    }
+    
+    public boolean estaReservada()
+    {
+        boolean ok=true;
+        if(reservada == null)
+            ok=false;
+        return ok;
+    }
 }

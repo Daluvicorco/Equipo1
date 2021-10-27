@@ -72,9 +72,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiqueta_luz" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiqueta_precio" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiqueta_id" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiqueta_metros" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="137" max="32767" attributes="0"/>
               </Group>
@@ -86,11 +87,13 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiqueta_id" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiqueta_luz" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiqueta_precio" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="etiqueta_metros" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -102,19 +105,24 @@
             <Property name="text" type="java.lang.String" value="Info:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="etiqueta_id">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ID: 123454"/>
+            <Property name="text" type="java.lang.String" value="ID:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="etiqueta_luz">
           <Properties>
             <Property name="text" type="java.lang.String" value="Luz:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="etiqueta_precio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Precio/Dia"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiqueta_metros">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Metros cuadrados"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -211,7 +219,6 @@
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
-        <Property name="actionCommand" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>

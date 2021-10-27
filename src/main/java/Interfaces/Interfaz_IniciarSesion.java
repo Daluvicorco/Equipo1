@@ -5,17 +5,20 @@
  */
 package Interfaces;
 
+import modelo.Camping;
+
 /**
  *
  * @author luisc
  */
 public class Interfaz_IniciarSesion extends javax.swing.JFrame {
-
+    private Camping c;
     /**
      * Creates new form Interfaz_IniciarSesion
      */
     public Interfaz_IniciarSesion() {
         initComponents();
+        c = new Camping();
         setLocationRelativeTo(this);
     }
 
@@ -126,7 +129,7 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClienteActionPerformed
-        Interfaz_Cliente ven = new Interfaz_Cliente();
+        Interfaz_Cliente ven = new Interfaz_Cliente(c);
         ven.setLocationRelativeTo(this);
         ven.setVisible(true);
         this.dispose();

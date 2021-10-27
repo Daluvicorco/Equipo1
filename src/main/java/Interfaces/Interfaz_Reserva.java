@@ -14,12 +14,20 @@ import modelo.Camping;
  * @author alumno
  */
 public class Interfaz_Reserva extends javax.swing.JFrame {
+    private Camping c;
+    private DefaultListModel modeloParcelas;
     /**
      * Creates new form Interfaz_Reserva
      */
-    public Interfaz_Reserva() {
+    public Interfaz_Reserva(Camping camp) {
         initComponents();
-       
+        c=camp;
+        ArrayList parcelas = c.getParcelas();
+        modeloParcelas = new DefaultListModel();
+        for(Object item : parcelas)
+            modeloParcelas.addElement(item);
+        
+        lista_parcelas.setModel(modeloParcelas);
     }
 
     /**
@@ -75,8 +83,8 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -105,61 +113,29 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Interfaz_Carrito carr = new Interfaz_Carrito();
+        Interfaz_Carrito carr = new Interfaz_Carrito(c);
         carr.setVisible(true);
         
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        Interfaz_Cliente ii = new Interfaz_Cliente();
+        Interfaz_Cliente ii = new Interfaz_Cliente(c);
         this.setVisible(false);
         ii.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void lista_parcelasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_parcelasValueChanged
         if(!evt.getValueIsAdjusting()){
-            Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela();
+            Object parcela = lista_parcelas.getSelectedValue();
+            Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela(c,parcela);
+            sel.setLocationRelativeTo(this);
             sel.setVisible(true);
         }
     }//GEN-LAST:event_lista_parcelasValueChanged
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-           
-        /* Create and display the form */
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interfaz_Reserva().setVisible(true);
-            }
-        });
-        
-    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
