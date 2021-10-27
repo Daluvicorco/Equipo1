@@ -53,6 +53,7 @@ public class Camping {
     public void reservarParcela(Object p)
     {
         Parcela par = (Parcela)p;
+        //parcelas.remove(par);
     }
     
     public void setCliente()

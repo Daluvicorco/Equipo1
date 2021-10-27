@@ -13,10 +13,6 @@ import modelo.Camping;
  */
 public class Sin_reserva extends javax.swing.JFrame {
 
-    
-    private modelo.Parcela[] parcelas;
-    
-
     private Camping c;
 
     /**
@@ -25,6 +21,7 @@ public class Sin_reserva extends javax.swing.JFrame {
     public Sin_reserva(Camping camp) {
         initComponents();
         c=camp;
+        c.cargarDatos();
     }
 
     /**
