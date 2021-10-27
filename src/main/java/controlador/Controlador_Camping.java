@@ -6,6 +6,7 @@
 package controlador;
 
 import modelo.Camping;
+import modelo.Reserva;
 
 /**
  *
@@ -16,6 +17,13 @@ public class Controlador_Camping{
     
     public Controlador_Camping() {
         c = new Camping();
+    }
+    
+    public boolean comprobarMetros() {
+       if ( c.getCliente().getMetros() <= c.getCliente().getReserva().getMetros()){
+           return true;
+       }
+       return false;
     }
     
 }

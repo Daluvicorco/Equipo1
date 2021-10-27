@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class Camping {
     private ArrayList<Parcela> parcelas = new ArrayList<Parcela>(); 
     private Cliente cliente;
-    private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
     
     public Camping(){
         this.cargarDatos();

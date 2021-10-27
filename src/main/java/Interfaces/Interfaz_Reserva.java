@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import modelo.Camping;
@@ -14,12 +15,12 @@ import modelo.Camping;
  * @author alumno
  */
 public class Interfaz_Reserva extends javax.swing.JFrame {
-    private Camping c;
+    private Controlador_Camping c;
     private DefaultListModel modeloParcelas;
     /**
      * Creates new form Interfaz_Reserva
      */
-    public Interfaz_Reserva(Camping camp) {
+    public Interfaz_Reserva(Controlador_Camping camp) {
         initComponents();
         c=camp;
         ArrayList parcelas = c.getParcelas();

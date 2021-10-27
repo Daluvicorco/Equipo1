@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
 import modelo.Camping;
 
 /**
@@ -13,11 +14,11 @@ import modelo.Camping;
  */
 public class Interfaz_Carrito extends javax.swing.JFrame {
     private Interfaz_Cliente ini;
-    private Camping c;
+    private Controlador_Camping c;
     /**
      * Creates new form Interfaz_Carrito
      */
-    public Interfaz_Carrito(Camping camp) {
+    public Interfaz_Carrito(Controlador_Camping camp) {
         initComponents();
         c = camp;
     }
@@ -167,7 +168,7 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
 
     private void botonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservarActionPerformed
         // Comprobar tamaño de la tienda
-        if(c.getCliente().getMetros() <= c.getCliente().getMetros()){
+        if(c.comprobarMetros()){
             ini = new Interfaz_Cliente(c);
             ini.setLocationRelativeTo(this);
             ini.setVisible(true);

@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
 import modelo.Camping;
 
 /**
@@ -12,11 +13,11 @@ import modelo.Camping;
  * @author luisc
  */
 public class Interfaz_SeleccionarFecha extends javax.swing.JFrame {
-    private Camping c;
+    private Controlador_Camping c;
     /**
      * Creates new form Interfaz_FechaLLegada
      */
-    public Interfaz_SeleccionarFecha(Camping camp) {
+    public Interfaz_SeleccionarFecha(Controlador_Camping camp) {
         initComponents();
         c=camp;
     }
