@@ -5,17 +5,21 @@
  */
 package Interfaces;
 
+import modelo.Camping;
+
 /**
  *
  * @author luisc
  */
 public class Interfaz_Carrito extends javax.swing.JFrame {
     private Interfaz_Cliente ini;
+    private Camping c;
     /**
      * Creates new form Interfaz_Carrito
      */
-    public Interfaz_Carrito() {
+    public Interfaz_Carrito(Camping camp) {
         initComponents();
+        c = camp;
     }
 
     /**
@@ -149,14 +153,14 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
     }//GEN-LAST:event_botonEliminarDelCarroActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
-        Interfaz_Reserva res = new Interfaz_Reserva();
+        Interfaz_Reserva res = new Interfaz_Reserva(c);
         res.setVisible(true);
         this.setVisible(false);
                 
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservarActionPerformed
-        ini = new Interfaz_Cliente();
+        ini = new Interfaz_Cliente(c);
         ini.setLocationRelativeTo(this);
         ini.setVisible(true);
         this.setVisible(false);

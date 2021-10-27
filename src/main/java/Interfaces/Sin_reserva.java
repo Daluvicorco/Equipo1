@@ -3,19 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaces;
+
+
+import modelo.Camping;
+
 /**
  *
  * @author nengo
  */
 public class Sin_reserva extends javax.swing.JFrame {
+
     
     private modelo.Parcela[] parcelas;
     
+
+    private Camping c;
+
     /**
      * Creates new form Sin_reserva
      */
-    public Sin_reserva() {
+    public Sin_reserva(Camping camp) {
         initComponents();
+        c=camp;
     }
 
     /**
@@ -103,21 +112,21 @@ public class Sin_reserva extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Interfaz_Cliente inicio = new Interfaz_Cliente();
+        Interfaz_Cliente inicio = new Interfaz_Cliente(c);
         inicio.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
         if(!evt.getValueIsAdjusting()){
-            Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela();
+            Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela(c);
             sel.setVisible(true);
         //this.setVisible(false);
         }
     }//GEN-LAST:event_jList1ValueChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Interfaz_Carrito carr = new Interfaz_Carrito();
+        Interfaz_Carrito carr = new Interfaz_Carrito(c);
         carr.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
