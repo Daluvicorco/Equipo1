@@ -207,10 +207,12 @@ public class Interfaz_Select_Parcela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirActionPerformed
-        Interfaz_Reserva reserva = new Interfaz_Reserva(c);
+        c.añadirCarrito(parcela);
+        Interfaz_Reserva reserva = new Interfaz_Reserva(c,parcela);
         reserva.setLocationRelativeTo(this);
         reserva.setVisible(true);
-        c.reservarParcela(parcela);
+        
+        //Falta eliminarlo del vector de parcelas para reservar.
         this.dispose();
     }//GEN-LAST:event_botonAñadirActionPerformed
 
