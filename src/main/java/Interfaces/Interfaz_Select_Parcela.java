@@ -13,11 +13,13 @@ import modelo.Camping;
  */
 public class Interfaz_Select_Parcela extends javax.swing.JFrame {
     private Camping c;
+    private Object parcela;
     /**
      * Creates new form Interfaz_Select_Parcela
      */
-    public Interfaz_Select_Parcela(Camping camp,Object parcela) {
+    public Interfaz_Select_Parcela(Camping camp,Object _parcela) {
         initComponents();
+        parcela = _parcela;
         c = camp;
         Detalles_Parcela dpar = c.consultarParcela(parcela);
         String s = etiqueta_luz.getText();
@@ -63,8 +65,8 @@ public class Interfaz_Select_Parcela extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botonAñadir = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,17 +160,17 @@ public class Interfaz_Select_Parcela extends javax.swing.JFrame {
                 .addContainerGap(108, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Añadir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonAñadir.setText("Añadir");
+        botonAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonAñadirActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonCancelarActionPerformed(evt);
             }
         });
 
@@ -183,9 +185,9 @@ public class Interfaz_Select_Parcela extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(botonAñadir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(botonCancelar)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -196,36 +198,39 @@ public class Interfaz_Select_Parcela extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(botonAñadir)
+                    .addComponent(botonCancelar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        Interfaz_Reserva reserva = new Interfaz_Reserva();
-//        reserva.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void botonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirActionPerformed
+        Interfaz_Reserva reserva = new Interfaz_Reserva(c);
+        reserva.setLocationRelativeTo(this);
+        reserva.setVisible(true);
+        c.reservarParcela(parcela);
+        this.dispose();
+    }//GEN-LAST:event_botonAñadirActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//        Interfaz_Reserva reserva = new Interfaz_Reserva();
-//        reserva.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+        Interfaz_Reserva reserva = new Interfaz_Reserva(c);
+        reserva.setLocationRelativeTo(this);
+        reserva.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botonCancelarActionPerformed
 
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAñadir;
+    private javax.swing.JButton botonCancelar;
     private javax.swing.JLabel etiqueta_id;
     private javax.swing.JLabel etiqueta_luz;
     private javax.swing.JLabel etiqueta_metros;
     private javax.swing.JLabel etiqueta_precio;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;

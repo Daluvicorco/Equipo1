@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public class Camping {
     private ArrayList<Parcela> parcelas = new ArrayList<Parcela>(); 
+    private Cliente cliente;
     
     public Camping(){
         this.cargarDatos();
@@ -48,6 +49,15 @@ public class Camping {
     {
         Parcela par = (Parcela)p;
         return par.consultarParcela();
+    }
+    public void reservarParcela(Object p)
+    {
+        Parcela par = (Parcela)p;
+    }
+    
+    public void setCliente()
+    {
+        Cliente c;
     }
 }
 
