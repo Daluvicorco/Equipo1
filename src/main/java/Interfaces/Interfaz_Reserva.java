@@ -8,6 +8,10 @@ package Interfaces;
 import controlador.Controlador_Camping;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.QUESTION_MESSAGE;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
 
 /**
  *
@@ -22,7 +26,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
     public Interfaz_Reserva(Controlador_Camping camp) {
         initComponents();
         c=camp;
-        ArrayList parcelas = c.getParcelas();
+        ArrayList parcelas = c.parcelasDisponibles();
         modeloParcelas = new DefaultListModel();
         for(Object item : parcelas)
             modeloParcelas.addElement(item);
@@ -34,7 +38,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
     {
         initComponents();
         c=camp;
-        ArrayList parcelas = c.getParcelas();
+        ArrayList parcelas = c.getParcelasNoReservadas();
         parcelas.remove(parcela);
         modeloParcelas = new DefaultListModel();
         for(Object item : parcelas)
@@ -71,11 +75,6 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
             }
         });
 
-        lista_parcelas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         lista_parcelas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 lista_parcelasValueChanged(evt);
@@ -142,9 +141,15 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
     private void lista_parcelasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_parcelasValueChanged
         if(!evt.getValueIsAdjusting()){
             Object parcela = lista_parcelas.getSelectedValue();
-            Interfaz_Select_Parcela sel = new Interfaz_Select_Parcela(c,parcela);
-            sel.setLocationRelativeTo(this);
-            sel.setVisible(true);
+            
+            int respuesta = JOptionPane.showConfirmDialog(null, 
+		"¿Añadir la parcela?", "Confirmar", 
+            JOptionPane.YES_NO_OPTION);
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            c.añadirCarrito(parcela);
+            modeloParcelas.removeElement(parcela);
+        }
         }
     }//GEN-LAST:event_lista_parcelasValueChanged
 

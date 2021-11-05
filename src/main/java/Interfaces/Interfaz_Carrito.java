@@ -6,6 +6,8 @@
 package Interfaces;
 
 import controlador.Controlador_Camping;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import modelo.Camping;
 
 /**
@@ -15,12 +17,21 @@ import modelo.Camping;
 public class Interfaz_Carrito extends javax.swing.JFrame {
     private Interfaz_Cliente ini;
     private Controlador_Camping c;
+    private DefaultListModel listaCarrito;
     /**
      * Creates new form Interfaz_Carrito
      */
     public Interfaz_Carrito(Controlador_Camping camp) {
         initComponents();
         c = camp;
+        listaCarrito = new DefaultListModel();
+        ArrayList carrito = c.getCarrito();
+        
+        for(Object it : carrito)
+        {
+            listaCarrito.addElement(it);
+        }
+        listaParcelasElegidas.setModel(listaCarrito);
     }
 
     /**
@@ -40,8 +51,7 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
         precioReserva = new javax.swing.JLabel();
         botonReservar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
-        botonEliminarDelCarro = new javax.swing.JButton();
-        InfoLabel = new javax.swing.JLabel();
+        botonEliminar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -56,10 +66,13 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        listaParcelasElegidas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        listaParcelasElegidas.setMaximumSize(new java.awt.Dimension(33, 80));
+        listaParcelasElegidas.setMinimumSize(new java.awt.Dimension(33, 80));
+        listaParcelasElegidas.setPreferredSize(new java.awt.Dimension(33, 80));
+        listaParcelasElegidas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                Interfaz_Carrito.this.valueChanged(evt);
+            }
         });
         jScrollPane1.setViewportView(listaParcelasElegidas);
 
@@ -86,81 +99,67 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
             }
         });
 
-        botonEliminarDelCarro.setText("Eliminar");
-        botonEliminarDelCarro.addActionListener(new java.awt.event.ActionListener() {
+        botonEliminar.setText("Eliminar");
+        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEliminarDelCarroActionPerformed(evt);
+                botonEliminarActionPerformed(evt);
             }
         });
-
-        InfoLabel.setText("Seleccione las parcelas que desea reservar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(botonReservar)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(textoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(precioReserva))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(botonReservar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(botonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botonEliminarDelCarro)))
-                        .addGap(111, 111, 111))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(InfoLabel)
+                                .addComponent(botonEliminar))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
                         .addComponent(tituloVentana)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(tituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(InfoLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(precioReserva))
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(botonReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(131, 131, 131)
-                                .addComponent(botonEliminarDelCarro))))
+                        .addGap(18, 18, 18)
+                        .addComponent(botonReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(botonEliminar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonEliminarDelCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarDelCarroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonEliminarDelCarroActionPerformed
-
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         Interfaz_Reserva res = new Interfaz_Reserva(c);
+        res.setLocationRelativeTo(this);
         res.setVisible(true);
         this.setVisible(false);
                 
@@ -175,51 +174,25 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
             this.setVisible(false);
         } else {
             // Lanzar interfaz de error
-            InfoLabel.setText("El tamaño de las tiendas es mayor que las parcelas seleccionadas");
+            //InfoLabel.setText("El tamaño de las tiendas es mayor que las parcelas seleccionadas");
         }
     }//GEN-LAST:event_botonReservarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz_Carrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz_Carrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz_Carrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz_Carrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void valueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_valueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valueChanged
 
-        /* Create and display the form */
-        /*
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interfaz_Carrito().setVisible(true);
-            }
-        });
-        */
-    }
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+        if(listaParcelasElegidas.getSelectedIndex()!=-1)
+            c.quitarParcelaCarrito(listaParcelasElegidas.getSelectedValue());
+        listaCarrito.removeElement(listaParcelasElegidas.getSelectedValue());
+    }//GEN-LAST:event_botonEliminarActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel InfoLabel;
     private javax.swing.JButton botonCancelar;
-    private javax.swing.JButton botonEliminarDelCarro;
+    private javax.swing.JButton botonEliminar;
     private javax.swing.JButton botonReservar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JScrollPane jScrollPane1;
