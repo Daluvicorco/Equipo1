@@ -6,6 +6,8 @@
 package controlador;
 
 import data.Detalles_Parcela;
+import static java.lang.Character.isLetter;
+import static java.lang.Float.parseFloat;
 import java.util.ArrayList;
 import java.util.Date;
 import modelo.Camping;
@@ -92,5 +94,50 @@ public class Controlador_Camping{
     public void quitarParcelaCarrito(Object parcela) {
         c.eliminarParcelaCarrito((Parcela)parcela);
     }
+
+    public boolean confirmarEntrada(Date llegada, Date salida, String smetros) {
+        boolean ok=true;
+        Float metros;
+        System.out.println("El valor de contiene letras " + contieneLetras(smetros));
+        if(!(smetros.isBlank() || contieneLetras(smetros)))
+        {
+           System.out.println("Entro aqui");
+           metros= parseFloat(smetros);
+           if(llegada != null && salida != null && metros != 0)
+           {
+               if(llegada.before(salida))
+               {
+                   Cliente cl = c.getCliente();
+                   cl.setMetros(metros);
+                   Reserva r = cl.getReserva();
+                   r.setFecha_inicio_reserva(llegada);
+                   r.setFecha_fin_reserva(salida);
+               }
+               else
+                   ok = false;
+           }
+           else
+               ok=false;
+        }
+        else 
+            ok=false;
+        
+        return ok;        
+    }
+
+    private boolean contieneLetras(String smetros) {
+        boolean ok=false;
+        int i=0;
+        char car;
+        while(i<smetros.length() && ok == false)
+        {
+            car  = smetros.charAt(i);
+            System.out.println("Analizando "+ car + "Valor: " + isLetter(car));
+            ok = isLetter(i);
+            i++;
+        }
+        return ok;
+    }
+
     
 }

@@ -22,6 +22,7 @@ public class Cliente {
         nombre = n;
         dni = d;
         metrosTienda = mT;
+        reserva = new Reserva();
     }
     
     public String getNombre() {

@@ -7,6 +7,7 @@ package modelo;
 
 import data.Detalles_Parcela;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -72,6 +73,8 @@ public class Camping {
     public void eliminarParcelaCarrito(Parcela parcela) {
         carrito.remove(parcela);
     }
+
+
     
 }
 
