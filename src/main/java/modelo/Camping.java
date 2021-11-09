@@ -17,6 +17,7 @@ public class Camping {
     private Cliente cliente;
     private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
     private ArrayList<Parcela> carrito = new ArrayList<Parcela>();
+    private ArrayList<Actividad> actividades = new ArrayList();
     
     public Camping(){
         this.cargarDatos();
@@ -69,9 +70,22 @@ public class Camping {
         return carrito;
     }
 
+    public ArrayList<Actividad> getActividades() {
+        return actividades;
+    }
+    
     public void eliminarParcelaCarrito(Parcela parcela) {
         carrito.remove(parcela);
     }
     
+    public Cliente[] getListaClientes(Object o) {
+        Actividad a = (Actividad)o;
+        for(Actividad ac : actividades) {
+            if(ac.getNombre().equals(a.getNombre())) {
+                return ac.getParticipantes();
+            }
+        }
+        return null;
+    }
 }
 

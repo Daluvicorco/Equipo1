@@ -92,5 +92,7 @@ public class Controlador_Camping{
     public void quitarParcelaCarrito(Object parcela) {
         c.eliminarParcelaCarrito((Parcela)parcela);
     }
-    
+    public void sancionarCliente(Object c) {
+        
+    }
 }
