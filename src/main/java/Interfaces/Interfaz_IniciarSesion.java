@@ -61,6 +61,11 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
         etiquetaContraseña.setText("Contraseña:");
 
         botonGestor.setText("Gestor");
+        botonGestor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGestorActionPerformed(evt);
+            }
+        });
 
         botonCliente.setText("Cliente");
         botonCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -79,13 +84,10 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(campoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 68, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -135,6 +137,14 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
         ven.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonClienteActionPerformed
+
+    private void botonGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGestorActionPerformed
+        Interfaz_Gestor gest = new Interfaz_Gestor(c);
+        gest.setLocationRelativeTo(this);
+        gest.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_botonGestorActionPerformed
 
     /**
      * @param args the command line arguments
