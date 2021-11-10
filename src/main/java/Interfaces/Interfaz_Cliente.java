@@ -23,6 +23,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         c = camp;
         if(c.getCliente().getSancion()){
             mensajeSancionado.setText(c.getCliente().getMensajeSancion());
+            jButton1.setEnabled(false);
         }
         
         //mensajeSancionado.setText(Interfaz_Control_Asistencia.mensajeSancion);
