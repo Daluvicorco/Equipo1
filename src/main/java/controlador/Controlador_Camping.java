@@ -102,7 +102,8 @@ public class Controlador_Camping{
     public boolean confirmarEntrada(Date llegada, Date salida, String smetros) {
         boolean ok=true;
         Float metros;
-        if((!smetros.isBlank() || !contieneLetras(smetros)))
+        //if((!smetros.isBlank() || !contieneLetras(smetros)))
+        if((smetros != null || !smetros.isEmpty() || !contieneLetras(smetros)))
         {
            smetros = smetros.replaceAll(",",".");
            metros= parseFloat(smetros);
