@@ -5,17 +5,30 @@
  */
 package Interfaces;
 
+import controlador.Controlador_Camping;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author luisc
  */
 public class Interfaz_Actividades extends javax.swing.JFrame {
-
+    
+    private Controlador_Camping c;
+    private DefaultListModel listActividades;
     /**
      * Creates new form Interfaz_Actividades
      */
-    public Interfaz_Actividades() {
+    public Interfaz_Actividades(Controlador_Camping camp) {
         initComponents();
+        c = camp;
+        ArrayList acti = c.getActividades();
+        listActividades = new DefaultListModel();
+        for(Object a : acti) {
+            listActividades.addElement(a);
+        }
+        jList1.setModel(listActividades);
     }
 
     /**
@@ -35,11 +48,6 @@ public class Interfaz_Actividades extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -58,7 +66,7 @@ public class Interfaz_Actividades extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2)
