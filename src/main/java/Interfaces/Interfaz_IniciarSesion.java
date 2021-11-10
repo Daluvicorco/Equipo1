@@ -50,13 +50,15 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Camping Party");
 
-        campoUsuario.setText("jTextField1");
-
         etiquetaUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         etiquetaUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         etiquetaUsuario.setText("Usuario:");
 
-        campoContraseña.setText("jTextField1");
+        campoContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoContraseñaActionPerformed(evt);
+            }
+        });
 
         etiquetaContraseña.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         etiquetaContraseña.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -117,7 +119,7 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(etiquetaContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonGestor)
@@ -154,6 +156,10 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_botonGestorActionPerformed
+
+    private void campoContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
