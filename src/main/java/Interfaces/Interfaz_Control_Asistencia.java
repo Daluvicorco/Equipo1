@@ -23,6 +23,7 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
     public Interfaz_Control_Asistencia(Controlador_Camping camp) {
         initComponents();
         cc = camp;
+        ListaClientes.removeAll();
         ArrayList participantes = cc.getParticipantes(Interfaz_Gestor_Actividades.actividad);
         modeloClientes = new DefaultListModel();
         for(Object c : participantes) {

@@ -23,6 +23,7 @@ public class Interfaz_Gestor_Actividades extends javax.swing.JFrame {
     public Interfaz_Gestor_Actividades(Controlador_Camping camp) {
         initComponents();
         cc = camp;
+        listaActividades.removeAll();
         ArrayList actividades = cc.getActividades();
         lista = new DefaultListModel();
         for(Object a : actividades) {
