@@ -168,6 +168,7 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
     private void botonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservarActionPerformed
         // Comprobar tamaño de la tienda
         if(c.comprobarMetros()){
+            c.reservarParcelas();
             ini = new Interfaz_Cliente(c);
             ini.setLocationRelativeTo(this);
             ini.setVisible(true);

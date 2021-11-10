@@ -7,6 +7,7 @@ package modelo;
 
 import data.Detalles_Parcela;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -77,6 +78,8 @@ public class Camping {
     public void eliminarParcelaCarrito(Parcela parcela) {
         carrito.remove(parcela);
     }
+
+
     
     public Cliente[] getListaClientes(Object o) {
         Actividad a = (Actividad)o;
@@ -86,6 +89,22 @@ public class Camping {
             }
         }
         return null;
+    }
+
+    public float getMetrosCarrito() {
+        float count =0;
+        for(int i=0;i<carrito.size();i++)
+            count = count + carrito.get(i).getMetros_cuadrados();
+        
+        return count;
+    }
+
+    public void addReserva(Reserva r) {
+        reservas.add(r);
+    }
+
+    public void vaciarCarrito() {
+        carrito.clear();
     }
 }
 

@@ -6,6 +6,8 @@
 package Interfaces;
 
 import controlador.Controlador_Camping;
+import static java.lang.Float.parseFloat;
+import java.util.Date;
 import modelo.Camping;
 
 /**
@@ -127,7 +129,11 @@ public class Interfaz_SeleccionarFecha extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
-        jDateLlegada.getDate();
+        Date llegada = jDateLlegada.getDate();
+        Date salida = jDateSalida.getDate();
+        
+        
+        c.confirmarEntrada(llegada,salida,TextField_Metros.getText());
         Interfaz_Reserva res = new Interfaz_Reserva(c);
         res.setLocationRelativeTo(this);
         res.setVisible(true);

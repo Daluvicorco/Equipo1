@@ -6,6 +6,9 @@
 package controlador;
 
 import data.Detalles_Parcela;
+import static java.lang.Character.isDigit;
+import static java.lang.Character.isLetter;
+import static java.lang.Float.parseFloat;
 import java.util.ArrayList;
 import java.util.Date;
 import modelo.Camping;
@@ -37,7 +40,7 @@ public class Controlador_Camping{
             c.addCarrito(parcela);
     }
     public boolean comprobarMetros() {
-       if ( c.getCliente().getMetros() <= c.getCliente().getReserva().getMetros()){
+       if ( c.getCliente().getMetros() <= c.getMetrosCarrito()){
            return true;
        }
        return false;
@@ -95,4 +98,64 @@ public class Controlador_Camping{
     public void sancionarCliente(Object c) {
         
     }
+
+    public boolean confirmarEntrada(Date llegada, Date salida, String smetros) {
+        boolean ok=true;
+        Float metros;
+        if((!smetros.isBlank() || !contieneLetras(smetros)))
+        {
+           smetros = smetros.replaceAll(",",".");
+           metros= parseFloat(smetros);
+           if(llegada != null && salida != null && metros != 0)
+           {
+               if(llegada.before(salida))
+               {
+                   Cliente cl = c.getCliente();
+                   cl.setMetros(metros);
+                   Reserva r = cl.getReserva();
+                   r.setFecha_inicio_reserva(llegada);
+                   r.setFecha_fin_reserva(salida);
+                   
+                   c.setCliente(cl);
+               }
+               else
+                   ok = false;
+           }
+           else
+               ok=false;
+        }
+        else 
+            ok=false;
+        
+        return ok;        
+    }
+
+    private boolean contieneLetras(String smetros) {
+        boolean ok=true;
+        int i=0;
+        char car;
+        while(i<smetros.length() && ok == true)
+        {
+            car  = smetros.charAt(i);
+            System.out.println("Analizando "+ car + "Valor: " + isLetter(car));
+            ok = ( isDigit(i) || car == ',' || car == '.' );
+            i++;
+        }
+        return ok;
+    }
+
+    public void reservarParcelas() {
+        Cliente cl = c.getCliente();
+        Reserva r =  cl.getReserva();
+        for(Parcela p : c.getCarrito())
+        {
+            p.setReservada(r);
+            r.addParcela(p);
+        }
+        cl.setReserva(r);
+        c.vaciarCarrito();
+        
+    }
+
+    
 }
