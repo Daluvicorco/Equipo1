@@ -65,4 +65,5 @@ public class Cliente {
     public String getMensajeSancion(){
         return this.mensajeSancion;
     }
+    
 }
