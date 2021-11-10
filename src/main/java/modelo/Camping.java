@@ -14,17 +14,21 @@ import java.util.Date;
  * @author luisc
  */
 public class Camping {
-    private ArrayList<Parcela> parcelas = new ArrayList<Parcela>(); 
-    private Cliente cliente;
-    private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
-    private ArrayList<Parcela> carrito = new ArrayList<Parcela>();
-    private ArrayList<Actividad> actividades = new ArrayList();
+    private ArrayList<Parcela> parcelas = new ArrayList<Parcela>(); //Cliente con todas las parcelas existentes
+    private Cliente cliente; //Cliente actual
+    private ArrayList<Reserva> reservas = new ArrayList<Reserva>(); //ArrayList con todas las reservas
+    private ArrayList<Parcela> carrito = new ArrayList<Parcela>(); //ArrayList con todas las parcelas dentro del carrito
+    private ArrayList<Actividad> actividades = new ArrayList(); //ArrayList con todas las actividades existentes
+    private ArrayList<Cliente> clientes = new ArrayList<Cliente>(); //ArrayList con todos los clientes existentes del programa
+    private Date fechainicio; //Atributo temporal sobre fecha inicial reserva
+    private Date fechafin; //Atributo temporal sobre fecha fin reserva
+    private float metros; //Atributo temporal sobre metros tienda campaña
     
     public Camping(){
         this.cargarDatos();
     }
     
-    public void cargarDatos(){
+    public void cargarDatos(){ //Funcion que carga unos datos iniciales al proyecto
         Parcela p = new Parcela(0,300,true,12,10);
         Parcela p2 = new Parcela(1,250,true,8,7);
         Parcela p3 = new Parcela(2,150,false,5,4);
@@ -64,7 +68,7 @@ public class Camping {
 
     public ArrayList<Reserva> getReservas() {
         return reservas;
-    }
+    }   
 
     public ArrayList<Parcela> getCarrito() {
         return carrito;
@@ -108,6 +112,26 @@ public class Camping {
 
     public void setDescuento_parcela(float x) {
         Parcela.setDescuento_parcela(x);
+    }
+    
+    //Funcion que cambia los valores temporales del cliente
+    public void añadirDatosReservaCliente(Date fechaini, Date fechaf, float mtr)
+    {
+        fechainicio = fechaini;
+        fechafin = fechaf;
+        metros = mtr;
+    }
+
+    public float getMetrosCliente() {
+        return metros;
+    }
+
+    public Date getFechaInicio() {
+        return fechainicio;
+    }
+
+    public Date getFechaFin() {
+        return fechafin;
     }
 }
 

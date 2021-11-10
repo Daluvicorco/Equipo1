@@ -62,7 +62,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
         botonCarrito = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lista_parcelas = new javax.swing.JList<>();
-        jButton2 = new javax.swing.JButton();
+        botonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,10 +90,15 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(lista_parcelas);
 
-        jButton2.setText("Salir");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        botonSalir.setText("Salir");
+        botonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                botonSalirMouseClicked(evt);
+            }
+        });
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSalirActionPerformed(evt);
             }
         });
 
@@ -106,7 +111,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonCarrito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
         );
@@ -118,7 +123,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(botonCarrito)
                         .addGap(92, 92, 92)
-                        .addComponent(jButton2))
+                        .addComponent(botonSalir))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -139,7 +144,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonCarritoMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void botonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSalirMouseClicked
         // TODO add your handling code here:
         Interfaz_Cliente ii;
         try {
@@ -150,7 +155,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
             Logger.getLogger(Interfaz_Reserva.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_botonSalirMouseClicked
 
     private void lista_parcelasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_parcelasValueChanged
         
@@ -172,12 +177,25 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lista_parcelasComponentRemoved
 
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
+        c.vaciarCarrito();
+        try {
+            Interfaz_Cliente in = new Interfaz_Cliente(c);
+            in.setLocationRelativeTo(this);
+            in.setVisible(true);
+            this.dispose();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Interfaz_Reserva.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_botonSalirActionPerformed
+
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCarrito;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton botonSalir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lista_parcelas;
     // End of variables declaration//GEN-END:variables

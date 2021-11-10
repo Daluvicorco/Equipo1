@@ -18,7 +18,7 @@ public class Parcela
     private boolean tiene_luz;
     private float precio_dia;
     static private float descuento_parcela;
-    private Reserva reservada;
+    private Reserva reservada; //Transformar a ArrayList
 
     public Parcela(int identificador, float metros_cuadrados, boolean tiene_luz, float precio_dia, float descuento_parcela) {
         this.identificador = identificador;

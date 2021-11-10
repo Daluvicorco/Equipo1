@@ -40,7 +40,7 @@ public class Controlador_Camping{
             c.addCarrito(parcela);
     }
     public boolean comprobarMetros() {
-       if ( c.getCliente().getMetros() <= c.getMetrosCarrito()){
+       if ( c.getMetrosCliente() <= c.getMetrosCarrito()){
            return true;
        }
        return false;
@@ -48,9 +48,11 @@ public class Controlador_Camping{
  
     public ArrayList parcelasDisponibles()
     {
+        Date fechai,fechaf;
         ArrayList<Reserva> r = c.getReservas();
         Cliente cl = c.getCliente();
-        Reserva res = cl.getReserva();
+        fechai = c.getFechaInicio();
+        fechaf = c.getFechaFin();
         
         ArrayList parcelasReservables = getParcelasNoReservadas();
         
@@ -59,14 +61,14 @@ public class Controlador_Camping{
         {
             fechaini = it.getFecha_inicio_reserva();
             fechafin = it.getFecha_fin_reserva();
-            
             //Para que pueda hacer la reserva, esta no debe estar entre las horas de otras reservas.
-            if((fechaini.before(res.getFecha_inicio_reserva()) &&  fechafin.before(
-                    res.getFecha_inicio_reserva())) || (fechaini.after(res.getFecha_fin_reserva())
-                    && fechafin.after(res.getFecha_fin_reserva())))
+            if(fechaini.after(fechaf) || fechafin.before(fechai))
             {
-                if(!parcelasReservables.contains((Object)it))
-                    parcelasReservables.add(it);
+                for(int i=0;i<it.getParcelas_reservadas().size();i++)
+                {
+                    if(!parcelasReservables.contains((Object)it.getParcelas_reservadas().get(i)))
+                    parcelasReservables.add((Object)it.getParcelas_reservadas().get(i));
+                }
             }
         }
         
@@ -109,15 +111,10 @@ public class Controlador_Camping{
            metros= parseFloat(smetros);
            if(llegada != null && salida != null && metros != 0)
            {
-               if(llegada.before(salida))
+               if(llegada.before(salida)) //Comprueba que la fecha de llegada sea anterior a la de salida
                {
-                   Cliente cl = c.getCliente();
-                   cl.setMetros(metros);
-                   Reserva r = cl.getReserva();
-                   r.setFecha_inicio_reserva(llegada);
-                   r.setFecha_fin_reserva(salida);
-                   
-                   c.setCliente(cl);
+                   //Añadir atributos temporales a controlador
+                   c.añadirDatosReservaCliente(llegada, salida, metros);
                }
                else
                    ok = false;
@@ -147,13 +144,15 @@ public class Controlador_Camping{
 
     public void reservarParcelas() {
         Cliente cl = c.getCliente();
-        Reserva r =  cl.getReserva();
+        Reserva r =  new Reserva();
         for(Parcela p : c.getCarrito())
         {
             p.setReservada(r);
             r.addParcela(p);
         }
-        cl.setReserva(r);
+        r.setFecha_inicio_reserva(c.getFechaInicio());
+        r.setFecha_fin_reserva(c.getFechaFin());
+        cl.addReserva(r);
         c.addReserva(r);
         c.vaciarCarrito();
         
@@ -169,5 +168,9 @@ public class Controlador_Camping{
 
     public void setDescuento(float x) {
         c.setDescuento_parcela(x);
+    }
+
+    public void vaciarCarrito() {
+        c.vaciarCarrito();
     }
 }

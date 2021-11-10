@@ -132,7 +132,6 @@ public class Interfaz_SeleccionarFecha extends javax.swing.JFrame {
         Date llegada = jDateLlegada.getDate();
         Date salida = jDateSalida.getDate();
         
-        
         c.confirmarEntrada(llegada,salida,TextField_Metros.getText());
         Interfaz_Reserva res = new Interfaz_Reserva(c);
         res.setLocationRelativeTo(this);

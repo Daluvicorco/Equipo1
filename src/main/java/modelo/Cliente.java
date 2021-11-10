@@ -16,13 +16,13 @@ public class Cliente {
     private String nombre;
     private String dni;
     private float metrosTienda;
-    private Reserva reserva;
+    private ArrayList<Reserva> reservas; //Transformar a ArrayList
     
     public Cliente(String n, String d, float mT) {
         nombre = n;
         dni = d;
         metrosTienda = mT;
-        reserva = new Reserva();
+        reservas = new ArrayList<Reserva>();
     }
     
     public String getNombre() {
@@ -43,11 +43,7 @@ public class Cliente {
         metrosTienda = nuevosMetros;
     }
     
-    public Reserva getReserva() {
-        return reserva;
-    }
-
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
+    public void addReserva(Reserva r) {
+        reservas.add(r);
     }
 }
