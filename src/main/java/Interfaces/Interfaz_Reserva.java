@@ -154,12 +154,7 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
 
     private void lista_parcelasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_parcelasValueChanged
         
-        if(!evt.getValueIsAdjusting()){
-            JList<String> auxList = (JList<String>) evt.getSource();
-            boolean sel = auxList.isSelectionEmpty();
-            if(sel){
-                return;
-            }
+        if(!evt.getValueIsAdjusting() || !lista_parcelas.isSelectionEmpty()){
             
             int respuesta = JOptionPane.showConfirmDialog(null, 
 		"¿Añadir la parcela?", "Confirmar", 
