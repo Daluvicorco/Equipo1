@@ -116,6 +116,7 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         // TODO add your handling code here:
         Interfaz_Gestor_Actividades ga = new Interfaz_Gestor_Actividades(cc);
+        this.setVisible(false);
         ga.setVisible(true);
 
     }//GEN-LAST:event_bVolverActionPerformed
