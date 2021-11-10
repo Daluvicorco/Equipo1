@@ -165,4 +165,8 @@ public class Controlador_Camping{
     public ArrayList getParticipantes(Object o) {
         return c.getListaClientes(o);
     }
+
+    public void setDescuento(float x) {
+        c.setDescuento_parcela(x);
+    }
 }

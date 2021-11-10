@@ -17,7 +17,7 @@ public class Parcela
     private float metros_cuadrados;
     private boolean tiene_luz;
     private float precio_dia;
-    private float descuento_parcela;
+    static private float descuento_parcela;
     private Reserva reservada;
 
     public Parcela(int identificador, float metros_cuadrados, boolean tiene_luz, float precio_dia, float descuento_parcela) {
@@ -65,8 +65,8 @@ public class Parcela
         return descuento_parcela;
     }
 
-    public void setDescuento_parcela(float descuento_parcela) {
-        this.descuento_parcela = descuento_parcela;
+    public static void setDescuento_parcela(float descuento_parcela) {
+        Parcela.descuento_parcela = descuento_parcela;
     }
 
     public Reserva getReservada() {
