@@ -107,5 +107,9 @@ public class Camping {
     public void vaciarCarrito() {
         carrito.clear();
     }
+
+    public void setDescuento_parcela(float x) {
+        Parcela.setDescuento_parcela(x);
+    }
 }
 

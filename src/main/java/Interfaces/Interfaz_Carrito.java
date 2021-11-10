@@ -7,6 +7,8 @@ package Interfaces;
 
 import controlador.Controlador_Camping;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import modelo.Camping;
 
@@ -169,7 +171,11 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
         // Comprobar tamaño de la tienda
         if(c.comprobarMetros()){
             c.reservarParcelas();
-            ini = new Interfaz_Cliente(c);
+            try {
+                ini = new Interfaz_Cliente(c);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Interfaz_Carrito.class.getName()).log(Level.SEVERE, null, ex);
+            }
             ini.setLocationRelativeTo(this);
             ini.setVisible(true);
             this.setVisible(false);

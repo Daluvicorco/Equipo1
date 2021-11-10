@@ -7,6 +7,8 @@ package Interfaces;
 
 import controlador.Controlador_Camping;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -133,9 +135,15 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        Interfaz_Cliente ii = new Interfaz_Cliente(c);
-        this.setVisible(false);
-        ii.setVisible(true);
+        Interfaz_Cliente ii;
+        try {
+            ii = new Interfaz_Cliente(c);
+            this.setVisible(false);
+            ii.setVisible(true);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Interfaz_Reserva.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void lista_parcelasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_parcelasValueChanged

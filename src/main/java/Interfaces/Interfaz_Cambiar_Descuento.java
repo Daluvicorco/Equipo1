@@ -101,7 +101,7 @@ public class Interfaz_Cambiar_Descuento extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         String X = jTextField1.getText();
-        //camp.setDescuento(parseFloat(X));
+        c.setDescuento(parseFloat(X));
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
