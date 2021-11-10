@@ -96,6 +96,9 @@ public class Controlador_Camping{
         c.eliminarParcelaCarrito((Parcela)parcela);
     }
     public String sancionarCliente(Object c) {
+        Cliente cli = c;
+        cli.setSancion(true);
+        cli.setMensajeSancion("Usted está sancionado durante 1 dia");
         return "Usted está sancionado durante 1 dia";
     }
 
@@ -168,5 +171,9 @@ public class Controlador_Camping{
 
     public void setDescuento(float x) {
         c.setDescuento_parcela(x);
+    }
+    
+    public Cliente getCliente(){
+        return c.getCliente();
     }
 }
