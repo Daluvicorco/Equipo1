@@ -90,5 +90,21 @@ public class Camping {
         }
         return null;
     }
+
+    public float getMetrosCarrito() {
+        float count =0;
+        for(int i=0;i<carrito.size();i++)
+            count = count + carrito.get(i).getMetros_cuadrados();
+        
+        return count;
+    }
+
+    public void addReserva(Reserva r) {
+        reservas.add(r);
+    }
+
+    public void vaciarCarrito() {
+        carrito.clear();
+    }
 }
 

@@ -46,4 +46,8 @@ public class Cliente {
     public Reserva getReserva() {
         return reserva;
     }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
 }

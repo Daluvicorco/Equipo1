@@ -25,10 +25,11 @@ public class Reserva{
         this.fecha_fin_reserva = fecha_fin_reserva;
         this.parcelas_reservadas = parcelas_reservadas;
         this.cliente_reserva = cliente_reserva;
+        parcelas_reservadas = new ArrayList<Parcela>();
     }
 
     public Reserva() {
-        
+        parcelas_reservadas = new ArrayList<Parcela>();
     }
     
     public float getMetros(){
@@ -85,6 +86,10 @@ public class Reserva{
 
     public void setCliente_reserva(Cliente cliente_reserva) {
         this.cliente_reserva = cliente_reserva;
+    }
+
+    public void addParcela(Parcela p) {
+        parcelas_reservadas.add(p);
     }
     
 }
