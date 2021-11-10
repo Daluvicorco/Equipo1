@@ -81,7 +81,7 @@ public class Camping {
 
 
     
-    public Cliente[] getListaClientes(Object o) {
+    public ArrayList<Cliente> getListaClientes(Object o) {
         Actividad a = (Actividad)o;
         for(Actividad ac : actividades) {
             if(ac.getNombre().equals(a.getNombre())) {

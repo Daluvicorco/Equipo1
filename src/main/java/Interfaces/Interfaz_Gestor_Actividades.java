@@ -5,6 +5,7 @@
 package Interfaces;
 
 import controlador.Controlador_Camping;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 
@@ -15,12 +16,19 @@ import javax.swing.DefaultListModel;
 public class Interfaz_Gestor_Actividades extends javax.swing.JFrame {
     private DefaultListModel lista;
     private Controlador_Camping cc;
+    public static Object actividad;
     /**
      * Creates new form Interfaz_Gestor_Actividades
      */
     public Interfaz_Gestor_Actividades(Controlador_Camping camp) {
         initComponents();
         cc = camp;
+        ArrayList actividades = cc.getActividades();
+        lista = new DefaultListModel();
+        for(Object a : actividades) {
+            lista.addElement(a);
+        }
+        listaActividades.setModel(lista);
     }
 
     /**
@@ -89,6 +97,7 @@ public class Interfaz_Gestor_Actividades extends javax.swing.JFrame {
 
     private void listaActividadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaActividadesMouseClicked
         // TODO add your handling code here:
+        actividad = listaActividades.getSelectedValue();       
         Interfaz_Control_Asistencia ca = new Interfaz_Control_Asistencia(cc);
         ca.setVisible(true);
     }//GEN-LAST:event_listaActividadesMouseClicked

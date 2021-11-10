@@ -95,8 +95,8 @@ public class Controlador_Camping{
     public void quitarParcelaCarrito(Object parcela) {
         c.eliminarParcelaCarrito((Parcela)parcela);
     }
-    public void sancionarCliente(Object c) {
-        
+    public String sancionarCliente(Object c) {
+        return "Usted está sancionado durante 1 dia";
     }
 
     public boolean confirmarEntrada(Date llegada, Date salida, String smetros) {
@@ -157,5 +157,11 @@ public class Controlador_Camping{
         
     }
 
+    public ArrayList getActividades() {
+        return c.getActividades();
+    }
     
+    public ArrayList getParticipantes(Object o) {
+        return c.getListaClientes(o);
+    }
 }

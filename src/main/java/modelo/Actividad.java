@@ -5,6 +5,7 @@
 package modelo;
 
 import java.sql.Time;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +15,7 @@ public class Actividad {
     private String nombre;
     private Time horaInicio;
     private Time horaFin;
-    private Cliente[] participantes;
+    private ArrayList<Cliente> participantes;
     
     public Actividad(String n, Time hI, Time hF) {
         nombre = n;
@@ -34,7 +35,7 @@ public class Actividad {
         return horaFin;
     }
 
-    public Cliente[] getParticipantes() {
+    public ArrayList<Cliente> getParticipantes() {
         return participantes;
     }
 

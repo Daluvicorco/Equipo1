@@ -5,6 +5,8 @@
 package Interfaces;
 
 import controlador.Controlador_Camping;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -13,12 +15,20 @@ import controlador.Controlador_Camping;
 public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
     
     private Controlador_Camping cc;
+    private DefaultListModel modeloClientes;
+    public static String mensajeSancion;
     /**
      * Creates new form Interfaz_Control_Asistencia
      */
     public Interfaz_Control_Asistencia(Controlador_Camping camp) {
         initComponents();
         cc = camp;
+        ArrayList participantes = cc.getParticipantes(Interfaz_Gestor_Actividades.actividad);
+        modeloClientes = new DefaultListModel();
+        for(Object c : participantes) {
+            modeloClientes.addElement(c);
+        }
+        ListaClientes.setModel(modeloClientes);
         bSancionar.setEnabled(false);
     }
 
@@ -97,8 +107,8 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
 
     private void bSancionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSancionarActionPerformed
         // TODO add your handling code here:
-        Object o = ListaClientes.getSelectedValue();
-        cc.sancionarCliente(o);
+        Object clienteASancionar = ListaClientes.getSelectedValue();
+        mensajeSancion = cc.sancionarCliente(clienteASancionar);
     }//GEN-LAST:event_bSancionarActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed

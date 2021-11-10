@@ -6,6 +6,7 @@
 package Interfaces;
 
 import controlador.Controlador_Camping;
+import javax.swing.JButton;
 import modelo.Camping;
 
 /**
@@ -17,9 +18,20 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz_Inicio
      */
-    public Interfaz_Cliente(Controlador_Camping camp) {
+    public Interfaz_Cliente(Controlador_Camping camp) throws InterruptedException {
         initComponents();
         c = camp;
+        mensajeSancionado.setText(Interfaz_Control_Asistencia.mensajeSancion);
+        /**
+         * Código que impide al cliente volver a reservar ya que está sancionado
+        if(!mensajeSancionado.getText().equals("")) {
+            botonReservar.setEnabled(false);
+            wait(50000);
+            botonReservar.setEnabled(true);
+            
+        }
+        */
+        
     }
 
     /**
@@ -34,6 +46,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         botonReservar = new javax.swing.JButton();
+        mensajeSancionado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(540, 450));
@@ -63,19 +76,28 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
             }
         });
 
+        mensajeSancionado.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(116, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(102, 102, 102)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(botonReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(241, 241, 241)
+                                .addComponent(mensajeSancionado)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -83,7 +105,9 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(mensajeSancionado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(botonReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,7 +129,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         ven.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonReservarActionPerformed
-
+    
  
     
 
@@ -113,5 +137,6 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
     private javax.swing.JButton botonReservar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel mensajeSancionado;
     // End of variables declaration//GEN-END:variables
 }
