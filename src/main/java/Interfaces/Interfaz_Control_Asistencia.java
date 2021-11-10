@@ -121,7 +121,9 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
 
     private void ListaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaClientesMouseClicked
         // TODO add your handling code here:
-        bSancionar.setEnabled(true);
+        if (!ListaClientes.isSelectionEmpty()){
+            bSancionar.setEnabled(true);
+        }
     }//GEN-LAST:event_ListaClientesMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
