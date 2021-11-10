@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
@@ -77,6 +78,11 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
             }
         });
 
+        lista_parcelas.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                lista_parcelasComponentRemoved(evt);
+            }
+        });
         lista_parcelas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 lista_parcelasValueChanged(evt);
@@ -147,8 +153,13 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void lista_parcelasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_parcelasValueChanged
+        
         if(!evt.getValueIsAdjusting()){
-            
+            JList<String> auxList = (JList<String>) evt.getSource();
+            boolean sel = auxList.isSelectionEmpty();
+            if(sel){
+                return;
+            }
             
             int respuesta = JOptionPane.showConfirmDialog(null, 
 		"¿Añadir la parcela?", "Confirmar", 
@@ -161,6 +172,10 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_lista_parcelasValueChanged
+
+    private void lista_parcelasComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_lista_parcelasComponentRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lista_parcelasComponentRemoved
 
 
     
