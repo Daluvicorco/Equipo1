@@ -96,7 +96,7 @@ public class Controlador_Camping{
         c.eliminarParcelaCarrito((Parcela)parcela);
     }
     public String sancionarCliente(Object c) {
-        Cliente cli = c;
+        Cliente cli =(Cliente) c;
         cli.setSancion(true);
         cli.setMensajeSancion("Usted está sancionado durante 1 dia");
         return "Usted está sancionado durante 1 dia";
