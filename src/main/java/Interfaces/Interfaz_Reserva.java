@@ -140,13 +140,14 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
 
     private void lista_parcelasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_parcelasValueChanged
         if(!evt.getValueIsAdjusting()){
-            Object parcela = lista_parcelas.getSelectedValue();
+            
             
             int respuesta = JOptionPane.showConfirmDialog(null, 
 		"¿Añadir la parcela?", "Confirmar", 
             JOptionPane.YES_NO_OPTION);
 
         if (respuesta == JOptionPane.YES_OPTION) {
+            Object parcela = lista_parcelas.getSelectedValue();
             c.añadirCarrito(parcela);
             modeloParcelas.removeElement(parcela);
         }
