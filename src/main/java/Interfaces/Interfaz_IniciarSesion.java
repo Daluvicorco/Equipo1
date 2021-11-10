@@ -6,6 +6,8 @@
 package Interfaces;
 
 import controlador.Controlador_Camping;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Camping;
 
 /**
@@ -132,10 +134,17 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClienteActionPerformed
-        Interfaz_Cliente ven = new Interfaz_Cliente(c);
-        ven.setLocationRelativeTo(this);
-        ven.setVisible(true);
-        this.dispose();
+        Interfaz_Cliente ven;
+        try {
+            ven = new Interfaz_Cliente(c);
+            ven.setLocationRelativeTo(this);
+            ven.setVisible(true);
+            this.dispose();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Interfaz_IniciarSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
     }//GEN-LAST:event_botonClienteActionPerformed
 
     private void botonGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGestorActionPerformed
