@@ -42,15 +42,15 @@ public class Interfaz_Gestor_Actividades extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaActividades = new javax.swing.JList<>();
+        listaActividades = new javax.swing.JList();
         bVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        listaActividades.setModel(new javax.swing.AbstractListModel<String>() {
+        listaActividades.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         listaActividades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -93,19 +93,22 @@ public class Interfaz_Gestor_Actividades extends javax.swing.JFrame {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         // TODO add your handling code here:
         Interfaz_Gestor g = new Interfaz_Gestor(cc);
+        this.setVisible(false);
         g.setVisible(true);
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void listaActividadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaActividadesMouseClicked
         // TODO add your handling code here:
-        actividad = listaActividades.getSelectedValue();       
-        Interfaz_Control_Asistencia ca = new Interfaz_Control_Asistencia(cc);
-        ca.setVisible(true);
+        if(!listaActividades.isSelectionEmpty()){
+            actividad = listaActividades.getSelectedValue();       
+            Interfaz_Control_Asistencia ca = new Interfaz_Control_Asistencia(cc);
+            ca.setVisible(true);
+        }
     }//GEN-LAST:event_listaActividadesMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVolver;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listaActividades;
+    private javax.swing.JList listaActividades;
     // End of variables declaration//GEN-END:variables
 }

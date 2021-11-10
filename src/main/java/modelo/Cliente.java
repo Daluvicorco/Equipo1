@@ -16,6 +16,9 @@ public class Cliente {
     private String nombre;
     private String dni;
     private float metrosTienda;
+    private Reserva reserva;
+    private boolean sancion = false;
+    private String mensajeSancion;
     private ArrayList<Reserva> reservas; //Transformar a ArrayList
     
     public Cliente(String n, String d, float mT) {
@@ -45,5 +48,21 @@ public class Cliente {
     
     public void addReserva(Reserva r) {
         reservas.add(r);
+    }
+    
+    public boolean getSancion(){
+        return sancion;
+    }
+    
+    public void setSancion(boolean s){
+        this.sancion= s;
+    }
+    
+    public void setMensajeSancion(String s){
+        this.mensajeSancion =  s;
+    }
+    
+    public String getMensajeSancion(){
+        return this.mensajeSancion;
     }
 }

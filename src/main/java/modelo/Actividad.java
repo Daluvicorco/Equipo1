@@ -23,6 +23,13 @@ public class Actividad {
         horaInicio = hI;
         horaFin = hF;
     }
+    
+    public Actividad(String tipo, String n, Time hI, Time hF) {
+        this.tipo=tipo;
+        nombre = n;
+        horaInicio = hI;
+        horaFin = hF;
+    }
 
     public String getTipo() {
         return tipo;
@@ -58,5 +65,10 @@ public class Actividad {
 
     public void setHoraFin(Time horaFin) {
         this.horaFin = horaFin;
+    }
+    
+    @Override
+    public String toString(){
+       return this.tipo+": "+this.nombre; 
     }
 }

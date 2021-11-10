@@ -6,6 +6,7 @@
 package modelo;
 
 import data.Detalles_Parcela;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -35,7 +36,12 @@ public class Camping {
         cliente = new Cliente("Victor Serrano","2106H",105);
         parcelas.add(p2);
         parcelas.add(p3);
-        
+        Actividad a1 = new Actividad("Piscina","competicion de natacion",new Time(12,0,0),new Time(13,30,0));
+        Actividad a2 = new Actividad("Fronton","competicion de fronton",new Time(14,0,0),new Time(15,30,0));
+        Actividad a3 = new Actividad("Juegos de mesa","competicion de parchis",new Time(16,30,0),new Time(18,0,0));
+        actividades.add(a1);
+        actividades.add(a2);
+        actividades.add(a3);
     }
     
     public ArrayList<Parcela> getParcelas()
