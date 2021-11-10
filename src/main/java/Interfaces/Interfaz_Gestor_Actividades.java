@@ -98,9 +98,11 @@ public class Interfaz_Gestor_Actividades extends javax.swing.JFrame {
 
     private void listaActividadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaActividadesMouseClicked
         // TODO add your handling code here:
-        actividad = listaActividades.getSelectedValue();       
-        Interfaz_Control_Asistencia ca = new Interfaz_Control_Asistencia(cc);
-        ca.setVisible(true);
+        if(!listaActividades.isSelectionEmpty()){
+            actividad = listaActividades.getSelectedValue();       
+            Interfaz_Control_Asistencia ca = new Interfaz_Control_Asistencia(cc);
+            ca.setVisible(true);
+        }
     }//GEN-LAST:event_listaActividadesMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

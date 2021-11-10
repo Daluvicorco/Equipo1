@@ -16,7 +16,7 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
     
     private Controlador_Camping cc;
     private DefaultListModel modeloClientes;
-    public static String mensajeSancion;
+    //public static String mensajeSancion;
     /**
      * Creates new form Interfaz_Control_Asistencia
      */
@@ -109,7 +109,8 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
     private void bSancionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSancionarActionPerformed
         // TODO add your handling code here:
         Object clienteASancionar = ListaClientes.getSelectedValue();
-        mensajeSancion = cc.sancionarCliente(clienteASancionar);
+        //mensajeSancion = cc.sancionarCliente(clienteASancionar);
+        cc.sancionarCliente(clienteASancionar);
     }//GEN-LAST:event_bSancionarActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
