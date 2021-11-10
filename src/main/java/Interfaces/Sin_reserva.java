@@ -157,7 +157,7 @@ public class Sin_reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void lista_parcelasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_parcelasValueChanged
-        if(!evt.getValueIsAdjusting()){
+        if(!evt.getValueIsAdjusting()||!lista_parcelas.isSelectionEmpty()){
 
             int respuesta = JOptionPane.showConfirmDialog(null,
                 "¿Añadir la parcela?", "Confirmar",
