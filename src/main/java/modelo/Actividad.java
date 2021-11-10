@@ -18,13 +18,8 @@ public class Actividad {
     private Time horaFin;
     private ArrayList<Cliente> participantes;
     
-    public Actividad(String n, Time hI, Time hF) {
-        nombre = n;
-        horaInicio = hI;
-        horaFin = hF;
-    }
-    
     public Actividad(String tipo, String n, Time hI, Time hF) {
+        participantes = new ArrayList();
         this.tipo=tipo;
         nombre = n;
         horaInicio = hI;
