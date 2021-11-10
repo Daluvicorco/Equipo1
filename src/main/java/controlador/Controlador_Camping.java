@@ -96,13 +96,17 @@ public class Controlador_Camping{
         c.eliminarParcelaCarrito((Parcela)parcela);
     }
     public String sancionarCliente(Object c) {
+        Cliente cli = c;
+        cli.setSancion(true);
+        cli.setMensajeSancion("Usted está sancionado durante 1 dia");
         return "Usted está sancionado durante 1 dia";
     }
 
     public boolean confirmarEntrada(Date llegada, Date salida, String smetros) {
         boolean ok=true;
         Float metros;
-        if((!smetros.isBlank() || !contieneLetras(smetros)))
+        //if((!smetros.isBlank() || !contieneLetras(smetros)))
+        if((smetros != null || !smetros.isEmpty() || !contieneLetras(smetros)))
         {
            smetros = smetros.replaceAll(",",".");
            metros= parseFloat(smetros);
@@ -153,6 +157,7 @@ public class Controlador_Camping{
             r.addParcela(p);
         }
         cl.setReserva(r);
+        c.addReserva(r);
         c.vaciarCarrito();
         
     }
@@ -167,5 +172,9 @@ public class Controlador_Camping{
 
     public void setDescuento(float x) {
         Parcela.setDescuento_parcela(x);
+    }
+    
+    public Cliente getCliente(){
+        return c.getCliente();
     }
 }

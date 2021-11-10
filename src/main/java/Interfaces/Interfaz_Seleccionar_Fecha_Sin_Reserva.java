@@ -6,6 +6,7 @@
 package Interfaces;
 
 import controlador.Controlador_Camping;
+import java.util.Date;
 import modelo.Camping;
 
 /**
@@ -135,6 +136,11 @@ public class Interfaz_Seleccionar_Fecha_Sin_Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Date llegada = new Date();
+        Date salida = jDateSalida.getDate();
+        
+        
+        c.confirmarEntrada(llegada,salida,jTextField1.getText());
         Sin_reserva sinres = new Sin_reserva(c);
         sinres.setLocationRelativeTo(this);
         sinres.setVisible(true);

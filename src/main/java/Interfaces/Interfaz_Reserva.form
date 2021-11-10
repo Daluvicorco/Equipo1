@@ -79,6 +79,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="lista_parcelasComponentRemoved"/>
             <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="lista_parcelasValueChanged"/>
           </Events>
           <AuxValues>

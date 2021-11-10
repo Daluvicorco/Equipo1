@@ -21,7 +21,12 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
     public Interfaz_Cliente(Controlador_Camping camp) throws InterruptedException {
         initComponents();
         c = camp;
-        mensajeSancionado.setText(Interfaz_Control_Asistencia.mensajeSancion);
+        if(c.getCliente().getSancion()){
+            mensajeSancionado.setText(c.getCliente().getMensajeSancion());
+            jButton1.setEnabled(false);
+        }
+        
+        //mensajeSancionado.setText(Interfaz_Control_Asistencia.mensajeSancion);
         /**
          * Código que impide al cliente volver a reservar ya que está sancionado
         if(!mensajeSancionado.getText().equals("")) {
@@ -118,8 +123,8 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Interfaz_Reserva conres = new Interfaz_Reserva(c);
-        conres.setVisible(true);
+        Interfaz_Actividades act = new Interfaz_Actividades(c);
+        act.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

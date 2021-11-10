@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public class Actividad {
+    private String tipo;
     private String nombre;
     private Time horaInicio;
     private Time horaFin;
@@ -21,6 +22,10 @@ public class Actividad {
         nombre = n;
         horaInicio = hI;
         horaFin = hF;
+    }
+
+    public String getTipo() {
+        return tipo;
     }
 
     public String getNombre() {
@@ -37,6 +42,10 @@ public class Actividad {
 
     public ArrayList<Cliente> getParticipantes() {
         return participantes;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public void setNombre(String nombre) {
