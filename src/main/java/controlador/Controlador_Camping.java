@@ -154,6 +154,7 @@ public class Controlador_Camping{
             r.addParcela(p);
         }
         cl.setReserva(r);
+        c.addReserva(r);
         c.vaciarCarrito();
         
     }

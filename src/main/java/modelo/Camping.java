@@ -29,7 +29,6 @@ public class Camping {
         Parcela p2 = new Parcela(1,250,true,8,7);
         Parcela p3 = new Parcela(2,150,false,5,4);
         cliente = new Cliente("Victor Serrano","2106H",105);
-        parcelas.add(p);
         System.out.println(p);
         parcelas.add(p2);
         parcelas.add(p3);
