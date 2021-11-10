@@ -12,7 +12,6 @@ package modelo;
 public class CalcularPrecio {
     private Parcela parcela;
     private Reserva reserva;
-    private float precioXDia;
     
     public CalcularPrecio(Parcela p, Reserva r) {
         parcela = p;
@@ -21,9 +20,9 @@ public class CalcularPrecio {
     }
     
     public float getPrecio() {
-        int diaEnt = 0; //reserva.getFechaRealEnt().getTime() / 86400000;
-        int diaSal = 0; //reserva.getFechaRealSalida().getTime() / 86400000;
-        int diasEstancia = diaSal - diaEnt;
+        long diaEnt = reserva.getFecha_real_entrada().getTime() / 86400000;
+        long diaSal = reserva.getFecha_real_salida().getTime() / 86400000;
+        long diasEstancia = diaSal - diaEnt;
         
         if(diasEstancia >= 15) {
           return diasEstancia * parcela.getPrecio_dia() * parcela.getDescuento_parcela();
