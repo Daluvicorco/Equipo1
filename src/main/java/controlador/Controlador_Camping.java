@@ -166,6 +166,6 @@ public class Controlador_Camping{
     }
 
     public void setDescuento(float x) {
-        c.setDescuento_parcela(x);
+        Parcela.setDescuento_parcela(x);
     }
 }
