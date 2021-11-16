@@ -181,4 +181,8 @@ public class Controlador_Camping{
     public void vaciarCarrito() {
         c.vaciarCarrito();
     }
+    
+    public ArrayList getHistorico() {
+        return null;
+    }
 }
