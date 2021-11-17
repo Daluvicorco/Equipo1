@@ -28,6 +28,12 @@ public class Cliente {
         reservas = new ArrayList<Reserva>();
     }
     
+    public Cliente(String n, String d) {
+        nombre = n;
+        dni = d;
+        reservas = new ArrayList<Reserva>();
+    }
+    
     public String getNombre() {
         return nombre;
     }

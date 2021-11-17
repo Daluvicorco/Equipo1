@@ -149,14 +149,13 @@ public class Controlador_Camping{
 
     public void reservarParcelas() {
         Cliente cl = c.getCliente();
-        Reserva r =  new Reserva();
+        Reserva r =  new Reserva(c.getFechaInicio(),c.getFechaFin(),cl);
         for(Parcela p : c.getCarrito())
         {
             p.setReservada(r);
             r.addParcela(p);
         }
-        r.setFecha_inicio_reserva(c.getFechaInicio());
-        r.setFecha_fin_reserva(c.getFechaFin());
+        
         cl.addReserva(r);
         c.addReserva(r);
         c.vaciarCarrito();

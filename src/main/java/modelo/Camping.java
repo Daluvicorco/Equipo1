@@ -34,7 +34,7 @@ public class Camping {
         Parcela p = new Parcela(0,300,true,12,10);
         Parcela p2 = new Parcela(1,250,true,8,7);
         Parcela p3 = new Parcela(2,150,false,5,4);
-        cliente = new Cliente("Victor Serrano","2106H",105);
+        cliente = new Cliente("Victor Serrano","2106H");
         parcelas.add(p2);
         parcelas.add(p3);
         Actividad a1 = new Actividad("Piscina","competicion de natacion",new Time(12,0,0),new Time(13,30,0));
@@ -43,10 +43,11 @@ public class Camping {
         actividades.add(a1);
         actividades.add(a2);
         actividades.add(a3);
-        Cliente cliente = new Cliente("12345678F", "Gonzalo Montes", 12);
-        Reserva reserva = new Reserva(new Date(2021, 11, 18), new Date(2021, 12, 10), parcelas, cliente);
+        //Cliente cliente = new Cliente("Gonzalo Montes","12345678F");
+        Reserva reserva = new Reserva(new Date(2021, 11, 18), new Date(2021, 12, 10), cliente);
+        reserva.setParcelas_reservadas(parcelas);
         reservas.add(reserva);
-        h = new Historico(cliente, reservas);
+        h = new Historico(this.cliente, reservas);
         
     }
     
@@ -135,6 +136,7 @@ public class Camping {
     {
         fechainicio = fechaini;
         fechafin = fechaf;
+        cliente.setMetros(mtr);
         metros = mtr;
     }
 
