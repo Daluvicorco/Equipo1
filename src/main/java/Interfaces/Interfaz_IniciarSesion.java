@@ -71,14 +71,14 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
         etiquetaContraseña.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         etiquetaContraseña.setText("Contraseña:");
 
-        botonGestor.setText("Gestor");
+        botonGestor.setText("Login");
         botonGestor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGestorActionPerformed(evt);
             }
         });
 
-        botonCliente.setText("Cliente");
+        botonCliente.setText("Registrar");
         botonCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonClienteActionPerformed(evt);
@@ -99,7 +99,7 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 68, Short.MAX_VALUE))
+                        .addGap(0, 77, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(botonCliente)
@@ -114,7 +114,7 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(48, 48, 48)
                     .addComponent(etiquetaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(251, Short.MAX_VALUE)))
+                    .addContainerGap(260, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,11 +123,11 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
                 .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(etiquetaContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(campoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonGestor)
                     .addComponent(botonCliente))
@@ -136,7 +136,7 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(82, 82, 82)
                     .addComponent(etiquetaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(195, Short.MAX_VALUE)))
+                    .addContainerGap(204, Short.MAX_VALUE)))
         );
 
         pack();
@@ -144,23 +144,22 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
 
     private void botonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClienteActionPerformed
         Interfaz_Cliente ven;
-        try {
-            ven = new Interfaz_Cliente(c);
-            ven.setLocationRelativeTo(this);
-            ven.setVisible(true);
-            this.dispose();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Interfaz_IniciarSesion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            if(c.crearCliente(campoUsuario.getText(),campoContraseña.getText())==true ){
+                Interfaz_Gestor gest = new Interfaz_Gestor(c);
+                gest.setLocationRelativeTo(this);
+                gest.setVisible(true);
+                this.dispose();
+            } else {
+                ven = new Interfaz_Cliente(c);
+                ven.setLocationRelativeTo(this);
+                ven.setVisible(true);
+                this.dispose();
+            }
 
         
     }//GEN-LAST:event_botonClienteActionPerformed
 
     private void botonGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGestorActionPerformed
-        Interfaz_Gestor gest = new Interfaz_Gestor(c);
-        gest.setLocationRelativeTo(this);
-        gest.setVisible(true);
-        this.dispose();
         
     }//GEN-LAST:event_botonGestorActionPerformed
 

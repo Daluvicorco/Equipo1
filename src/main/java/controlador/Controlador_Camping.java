@@ -15,6 +15,7 @@ import java.util.Date;
 import modelo.Actividad;
 import modelo.Camping;
 import modelo.Cliente;
+import modelo.Gestor;
 import modelo.Parcela;
 import modelo.Reserva;
 
@@ -24,9 +25,11 @@ import modelo.Reserva;
  */
 public class Controlador_Camping{
     Camping c;
+    factory f;
     
     public Controlador_Camping() {
         c = new Camping();
+        f = new factory();
     }
     
 
@@ -232,5 +235,15 @@ public class Controlador_Camping{
     public void anyadeActividad(String tipo,String tit,Time horaini,Time horafin){
         Actividad x = new Actividad(tipo,tit,horaini,horafin);
         c.anyadeAct(x);
+    }
+
+    public boolean crearCliente(String nombre, String dni) {
+        Object o = (f.crearCliente(nombre,dni));
+        if ( o instanceof Gestor){
+            c.setGestor((Gestor)o);
+            return true;
+        }
+        c.setCliente((Cliente)o);
+        return false;
     }
 }

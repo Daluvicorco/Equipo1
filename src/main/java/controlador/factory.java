@@ -6,18 +6,24 @@
 package controlador;
 
 import modelo.Cliente;
+import modelo.Gestor;
 
 /**
  *
  * @author luisc
  */
 public class factory{
+    final String gestorID = "0000";
+    
+    public factory(){
+        
+    }
 
-    private Cliente crearCliente(boolean tipo,String contraseña,String nombre)
+    public Object crearCliente(String nombre,String dni)
     {
-        if(tipo == true)
-            return new Cliente();
+        if(!dni.equals(gestorID))
+            return new Cliente(nombre,dni);
         else
-            return new Administrador();
+            return new Gestor(nombre,gestorID,gestorID);
     }
 }

@@ -112,14 +112,11 @@ public class Interfaz_Actividades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
+        
             Interfaz_Cliente icl = new Interfaz_Cliente(c);
             icl.setLocationRelativeTo(this);
             icl.setVisible(true);
             this.dispose();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Interfaz_Actividades.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

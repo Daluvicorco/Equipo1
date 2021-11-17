@@ -147,13 +147,9 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
     private void botonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSalirMouseClicked
         // TODO add your handling code here:
         Interfaz_Cliente ii;
-        try {
             ii = new Interfaz_Cliente(c);
             this.setVisible(false);
             ii.setVisible(true);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Interfaz_Reserva.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
     }//GEN-LAST:event_botonSalirMouseClicked
 
@@ -179,14 +175,10 @@ public class Interfaz_Reserva extends javax.swing.JFrame {
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         c.vaciarCarrito();
-        try {
             Interfaz_Cliente in = new Interfaz_Cliente(c);
             in.setLocationRelativeTo(this);
             in.setVisible(true);
             this.dispose();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Interfaz_Reserva.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
     }//GEN-LAST:event_botonSalirActionPerformed
 

@@ -11,8 +11,8 @@ package modelo;
 public class Gestor extends Cliente{
     private String id;
     
-    public Gestor(String d, String n, float mT, String ident) {
-        super(d, n, mT);
+    public Gestor(String n, String d,String ident) {
+        super(n,d);
         id = ident;
     }
 
