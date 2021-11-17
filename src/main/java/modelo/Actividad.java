@@ -17,6 +17,7 @@ public class Actividad {
     private Time horaInicio;
     private Time horaFin;
     private ArrayList<Cliente> participantes;
+    private Cliente ganador;
     
     public Actividad(String tipo, String n, Time hI, Time hF) {
         participantes = new ArrayList();
@@ -24,6 +25,14 @@ public class Actividad {
         nombre = n;
         horaInicio = hI;
         horaFin = hF;
+    }
+
+    public Cliente getGanador() {
+        return ganador;
+    }
+
+    public void setGanador(Cliente ganador) {
+        this.ganador = ganador;
     }
     
 
@@ -66,5 +75,9 @@ public class Actividad {
     @Override
     public String toString(){
        return this.tipo+": "+this.nombre; 
+    }
+
+    public void addParticipante(Cliente cli) {
+        participantes.add(cli);
     }
 }

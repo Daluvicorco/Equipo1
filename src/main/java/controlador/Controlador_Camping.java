@@ -185,4 +185,19 @@ public class Controlador_Camping{
     public ArrayList getHistorico() {
         return null;
     }
+
+    public void setGanadorActividad(Object cl, Object actividad) {
+       c.setGanadorActividad(cl,actividad);
+    }
+
+    public void añadirActividad(Object actividad) {
+        ArrayList<Actividad> a = c.getActividades();
+        Actividad ac = (Actividad)actividad;
+        Cliente cli = c.getCliente();
+        for(Actividad it : a)
+        {
+            if(it.getNombre().equals(ac.getNombre()))
+                it.addParticipante(cli);
+        }
+    }
 }

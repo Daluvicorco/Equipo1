@@ -96,7 +96,8 @@ public class Interfaz_Gestor_Actividades extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!listaActividades.isSelectionEmpty()){
             actividad = listaActividades.getSelectedValue();       
-            Interfaz_Control_Asistencia ca = new Interfaz_Control_Asistencia(cc);
+            Interfaz_Control_Asistencia ca = new Interfaz_Control_Asistencia(cc,actividad);
+            ca.setLocationRelativeTo(this);
             ca.setVisible(true);
         }
     }//GEN-LAST:event_listaActividadesMouseClicked

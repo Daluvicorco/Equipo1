@@ -7,7 +7,10 @@ package Interfaces;
 
 import controlador.Controlador_Camping;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,7 +31,7 @@ public class Interfaz_Actividades extends javax.swing.JFrame {
         for(Object a : acti) {
             listActividades.addElement(a);
         }
-        jList1.setModel(listActividades);
+        lista_actividades.setModel(listActividades);
     }
 
     /**
@@ -41,14 +44,19 @@ public class Interfaz_Actividades extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lista_actividades = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(jList1);
+        lista_actividades.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lista_actividadesValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(lista_actividades);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Actividades disponibles");
@@ -56,6 +64,11 @@ public class Interfaz_Actividades extends javax.swing.JFrame {
         jButton1.setText("Mis actividades");
 
         jButton2.setText("Atrás");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,11 +106,38 @@ public class Interfaz_Actividades extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            Interfaz_Cliente icl = new Interfaz_Cliente(c);
+            icl.setLocationRelativeTo(this);
+            icl.setVisible(true);
+            this.dispose();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Interfaz_Actividades.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void lista_actividadesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lista_actividadesValueChanged
+                if(!evt.getValueIsAdjusting() || !lista_actividades.isSelectionEmpty()){
+            
+            int respuesta = JOptionPane.showConfirmDialog(null, 
+		"¿Añadir la actividad?", "Confirmar", 
+            JOptionPane.YES_NO_OPTION);
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            Object actividad = lista_actividades.getSelectedValue();
+            c.añadirActividad(actividad);
+            listActividades.removeElement(actividad);
+        }
+        }
+    }//GEN-LAST:event_lista_actividadesValueChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> lista_actividades;
     // End of variables declaration//GEN-END:variables
 }

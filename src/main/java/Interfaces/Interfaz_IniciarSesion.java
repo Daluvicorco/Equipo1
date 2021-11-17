@@ -24,7 +24,12 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
         c = new Controlador_Camping();
         setLocationRelativeTo(this);
     }
-
+    
+    public Interfaz_IniciarSesion(Controlador_Camping con) {
+        initComponents();
+        c = con;
+        setLocationRelativeTo(this);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

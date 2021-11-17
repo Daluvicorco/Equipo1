@@ -52,6 +52,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         botonReservar = new javax.swing.JButton();
         mensajeSancionado = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(540, 450));
@@ -83,6 +84,13 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
 
         mensajeSancionado.setText("jLabel2");
 
+        jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,6 +112,10 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
                                 .addComponent(mensajeSancionado)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +128,9 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
                 .addComponent(botonReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78))
+                .addGap(35, 35, 35)
+                .addComponent(jButton2)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -125,6 +139,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Interfaz_Actividades act = new Interfaz_Actividades(c);
         act.setVisible(true);
+        act.setLocationRelativeTo(this);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -134,6 +149,13 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         ven.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonReservarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Interfaz_IniciarSesion ini = new Interfaz_IniciarSesion(c);
+        ini.setLocationRelativeTo(this);
+        ini.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
     
  
     
@@ -141,7 +163,9 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonReservar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel mensajeSancionado;
     // End of variables declaration//GEN-END:variables
+
 }

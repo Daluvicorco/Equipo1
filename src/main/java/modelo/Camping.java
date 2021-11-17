@@ -139,5 +139,14 @@ public class Camping {
     public Date getFechaFin() {
         return fechafin;
     }
+
+    public void setGanadorActividad(Object cl, Object actividad) {
+        Actividad a = (Actividad)actividad;
+        for(Actividad ac : actividades) {
+            if(ac.getNombre().equals(a.getNombre())) {
+                ac.setGanador((Cliente)cl);
+            }
+        }
+    }
 }
 

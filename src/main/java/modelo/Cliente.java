@@ -65,5 +65,11 @@ public class Cliente {
     public String getMensajeSancion(){
         return this.mensajeSancion;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{"  + nombre + '}';
+    }
+ 
     
 }

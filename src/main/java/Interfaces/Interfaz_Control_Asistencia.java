@@ -16,13 +16,15 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
     
     private Controlador_Camping cc;
     private DefaultListModel modeloClientes;
+    private Object actividad;
     //public static String mensajeSancion;
     /**
      * Creates new form Interfaz_Control_Asistencia
      */
-    public Interfaz_Control_Asistencia(Controlador_Camping camp) {
+    public Interfaz_Control_Asistencia(Controlador_Camping camp,Object act) {
         initComponents();
         cc = camp;
+        actividad = act;
         ListaClientes.removeAll();
         ArrayList participantes = cc.getParticipantes(Interfaz_Gestor_Actividades.actividad);
         modeloClientes = new DefaultListModel();
@@ -31,6 +33,7 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
         }
         ListaClientes.setModel(modeloClientes);
         bSancionar.setEnabled(false);
+        botonGanador.setEnabled(false);
     }
 
     /**
@@ -46,6 +49,7 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
         ListaClientes = new javax.swing.JList<>();
         bSancionar = new javax.swing.JButton();
         bVolver = new javax.swing.JButton();
+        botonGanador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +74,13 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
             }
         });
 
+        botonGanador.setText("Ganador");
+        botonGanador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGanadorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,23 +89,27 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bSancionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(bSancionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonGanador))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(bSancionar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bVolver))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(bSancionar)
+                        .addGap(40, 40, 40)
+                        .addComponent(botonGanador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bVolver)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -120,13 +135,21 @@ public class Interfaz_Control_Asistencia extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!ListaClientes.isSelectionEmpty()){
             bSancionar.setEnabled(true);
+            botonGanador.setEnabled(true);
         }
     }//GEN-LAST:event_ListaClientesMouseClicked
+
+    private void botonGanadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGanadorActionPerformed
+        Object cl = ListaClientes.getSelectedValue();
+        cc.setGanadorActividad(cl,actividad);
+            
+    }//GEN-LAST:event_botonGanadorActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> ListaClientes;
     private javax.swing.JButton bSancionar;
     private javax.swing.JButton bVolver;
+    private javax.swing.JButton botonGanador;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
