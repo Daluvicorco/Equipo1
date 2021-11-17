@@ -224,7 +224,7 @@ public class Controlador_Camping{
             for(Cliente cl : participantes)
             {
                 if(cl.getNombre().equals(cli.getNombre()) && !participo.contains((Object)cli))
-                    participo.add(it);
+                    participo.add((Object)it);
             }
         }
         return participo;

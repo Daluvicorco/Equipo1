@@ -78,7 +78,8 @@ public class Actividad {
     }
 
     public void addParticipante(Cliente cli) {
-        participantes.add(cli);
+        if(!participantes.contains(cli))
+            participantes.add(cli);
     }
 
     public void removeParticipante(Cliente cli) {
