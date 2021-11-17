@@ -171,11 +171,7 @@ public class Interfaz_Carrito extends javax.swing.JFrame {
         // Comprobar tamaño de la tienda
         if(c.comprobarMetros()){
             c.reservarParcelas();
-            try {
                 ini = new Interfaz_Cliente(c);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Interfaz_Carrito.class.getName()).log(Level.SEVERE, null, ex);
-            }
             ini.setLocationRelativeTo(this);
             ini.setVisible(true);
             this.setVisible(false);

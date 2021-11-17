@@ -18,7 +18,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz_Inicio
      */
-    public Interfaz_Cliente(Controlador_Camping camp) throws InterruptedException {
+    public Interfaz_Cliente(Controlador_Camping camp) {
         initComponents();
         c = camp;
         if(c.getCliente().getSancion()){

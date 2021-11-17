@@ -17,6 +17,7 @@ import java.util.Date;
 public class Camping {
     private ArrayList<Parcela> parcelas = new ArrayList<Parcela>(); //Cliente con todas las parcelas existentes
     private Cliente cliente; //Cliente actual
+    private Gestor gestor;
     private ArrayList<Reserva> reservas = new ArrayList<Reserva>(); //ArrayList con todas las reservas
     private ArrayList<Parcela> carrito = new ArrayList<Parcela>(); //ArrayList con todas las parcelas dentro del carrito
     private ArrayList<Actividad> actividades = new ArrayList(); //ArrayList con todas las actividades existentes
@@ -170,6 +171,10 @@ public class Camping {
         ArrayList res = new ArrayList();
         res.add(h.getCliente() + " " + h.getReservas());
         return res;
+    }
+
+    public void setGestor(Gestor gestor) {
+        this.gestor=gestor;
     }
 }
 
