@@ -28,7 +28,7 @@ public class Historico {
         String aux = "";
         for(Reserva res : r) {
             if(res.getCliente_reserva().getDni().equals(c.getDni())) {
-                aux += res.getFecha_inicio_reserva() + " " + res.getFecha_fin_reserva();
+                aux += res.getFecha_inicio_reserva() + " " + res.getFecha_fin_reserva()/** + " " + res.getPrecio()*/;
             }
         }
         return aux;

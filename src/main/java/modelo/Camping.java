@@ -47,6 +47,7 @@ public class Camping {
         Reserva reserva = new Reserva(new Date(2021, 11, 18), new Date(2021, 12, 10), parcelas, cliente);
         reservas.add(reserva);
         h = new Historico(cliente, reservas);
+        
     }
     
     public ArrayList<Parcela> getParcelas()

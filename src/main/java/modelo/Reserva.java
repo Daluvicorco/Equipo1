@@ -19,6 +19,7 @@ public class Reserva{
     private Date fecha_real_salida;
     private ArrayList<Parcela> parcelas_reservadas;
     private Cliente cliente_reserva;
+    private CalcularPrecio precio;
 
     public Reserva(Date fecha_inicio_reserva, Date fecha_fin_reserva, ArrayList<Parcela> parcelas_reservadas, Cliente cliente_reserva) {
         this.fecha_inicio_reserva = fecha_inicio_reserva;
@@ -91,5 +92,7 @@ public class Reserva{
     public void addParcela(Parcela p) {
         parcelas_reservadas.add(p);
     }
-    
+    public float getPrecio() {
+        return precio.getPrecio();
+    }
 }
