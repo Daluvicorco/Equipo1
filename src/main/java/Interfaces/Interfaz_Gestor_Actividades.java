@@ -88,8 +88,9 @@ public class Interfaz_Gestor_Actividades extends javax.swing.JFrame {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         // TODO add your handling code here:
         Interfaz_Gestor g = new Interfaz_Gestor(cc);
-        this.setVisible(false);
+        g.setLocationRelativeTo(this);
         g.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void listaActividadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaActividadesMouseClicked
@@ -99,6 +100,7 @@ public class Interfaz_Gestor_Actividades extends javax.swing.JFrame {
             Interfaz_Control_Asistencia ca = new Interfaz_Control_Asistencia(cc,actividad);
             ca.setLocationRelativeTo(this);
             ca.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_listaActividadesMouseClicked
 

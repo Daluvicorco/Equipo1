@@ -200,4 +200,32 @@ public class Controlador_Camping{
                 it.addParticipante(cli);
         }
     }
+
+    public void eliminarClienteActividad(Object actividad) {
+        ArrayList<Actividad> a = c.getActividades();
+        Actividad ac = (Actividad)actividad;
+        Cliente cli = c.getCliente();
+        for(Actividad it : a)
+        {
+            if(it.getNombre().equals(ac.getNombre()))
+                it.removeParticipante(cli);
+        }
+    }
+
+    public ArrayList getActividadesCliente() {
+        ArrayList<Actividad> a = c.getActividades();
+        ArrayList<Cliente> participantes;
+        Cliente cli = c.getCliente();
+        ArrayList participo = new ArrayList();
+        for(Actividad it : a)
+        {
+            participantes = it.getParticipantes();
+            for(Cliente cl : participantes)
+            {
+                if(cl.getNombre().equals(cli.getNombre()) && !participo.contains((Object)cli))
+                    participo.add(it);
+            }
+        }
+        return participo;
+    }
 }
