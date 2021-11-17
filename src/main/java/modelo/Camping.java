@@ -74,8 +74,12 @@ public class Camping {
     
     public void addCarrito(Object parcela)
     {
-        if(parcela != null)
-            carrito.add((Parcela)parcela);
+        if(parcela != null){
+            Parcela par = (Parcela) parcela;
+            if (!par.estaReservada()){
+                carrito.add(par);
+            }
+        }
     }
 
     public ArrayList<Reserva> getReservas() {
