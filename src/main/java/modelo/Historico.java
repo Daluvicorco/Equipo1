@@ -19,4 +19,18 @@ public class Historico {
         r = new ArrayList();
         r = res;
     }
+    
+    public String getCliente() {
+        return c.getDni() + c.getNombre();
+    }
+    
+    public String getReservas() {
+        String aux = "";
+        for(Reserva res : r) {
+            if(res.getCliente_reserva().getDni().equals(c.getDni())) {
+                aux += res.getFecha_inicio_reserva() + " " + res.getFecha_fin_reserva();
+            }
+        }
+        return aux;
+    }
 }

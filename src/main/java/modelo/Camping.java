@@ -24,6 +24,7 @@ public class Camping {
     private Date fechainicio; //Atributo temporal sobre fecha inicial reserva
     private Date fechafin; //Atributo temporal sobre fecha fin reserva
     private float metros; //Atributo temporal sobre metros tienda campaña
+    private Historico h; //Atributo para el historico
     
     public Camping(){
         this.cargarDatos();
@@ -42,6 +43,10 @@ public class Camping {
         actividades.add(a1);
         actividades.add(a2);
         actividades.add(a3);
+        Cliente cliente = new Cliente("12345678F", "Gonzalo Montes", 12);
+        Reserva reserva = new Reserva(new Date(2021, 11, 18), new Date(2021, 12, 10), parcelas, cliente);
+        reservas.add(reserva);
+        h = new Historico(cliente, reservas);
     }
     
     public ArrayList<Parcela> getParcelas()
@@ -152,6 +157,12 @@ public class Camping {
     public void anyadeAct(Actividad a)
     {
         actividades.add(a);
+    }
+    
+    public ArrayList getHistoria() {
+        ArrayList res = new ArrayList();
+        res.add(h.getCliente() + " " + h.getReservas());
+        return res;
     }
 }
 

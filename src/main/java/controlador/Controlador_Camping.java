@@ -184,7 +184,7 @@ public class Controlador_Camping{
     }
     
     public ArrayList getHistorico() {
-        return null;
+        return c.getHistoria();
     }
 
     public void setGanadorActividad(Object cl, Object actividad) {
