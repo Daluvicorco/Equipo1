@@ -150,7 +150,7 @@ public class Sin_reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jList1ValueChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Interfaz_Carrito carr = new Interfaz_Carrito(c);
+        Interfaz_Carrito_Sin_Reserva carr = new Interfaz_Carrito_Sin_Reserva(c);
         carr.setLocationRelativeTo(this);
         carr.setVisible(true);
         this.dispose();

@@ -9,6 +9,7 @@ import data.Detalles_Parcela;
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 import static java.lang.Float.parseFloat;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import modelo.Actividad;
@@ -199,5 +200,38 @@ public class Controlador_Camping{
             if(it.getNombre().equals(ac.getNombre()))
                 it.addParticipante(cli);
         }
+    }
+
+    public void eliminarClienteActividad(Object actividad) {
+        ArrayList<Actividad> a = c.getActividades();
+        Actividad ac = (Actividad)actividad;
+        Cliente cli = c.getCliente();
+        for(Actividad it : a)
+        {
+            if(it.getNombre().equals(ac.getNombre()))
+                it.removeParticipante(cli);
+        }
+    }
+
+    public ArrayList getActividadesCliente() {
+        ArrayList<Actividad> a = c.getActividades();
+        ArrayList<Cliente> participantes;
+        Cliente cli = c.getCliente();
+        ArrayList participo = new ArrayList();
+        for(Actividad it : a)
+        {
+            participantes = it.getParticipantes();
+            for(Cliente cl : participantes)
+            {
+                if(cl.getNombre().equals(cli.getNombre()) && !participo.contains((Object)cli))
+                    participo.add(it);
+            }
+        }
+        return participo;
+    }
+    
+    public void anyadeActividad(String tipo,String tit,Time horaini,Time horafin){
+        Actividad x = new Actividad(tipo,tit,horaini,horafin);
+        c.anyadeAct(x);
     }
 }

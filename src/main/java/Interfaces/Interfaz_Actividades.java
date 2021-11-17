@@ -62,6 +62,11 @@ public class Interfaz_Actividades extends javax.swing.JFrame {
         jLabel1.setText("Actividades disponibles");
 
         jButton1.setText("Mis actividades");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Atrás");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +137,13 @@ public class Interfaz_Actividades extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_lista_actividadesValueChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Interfaz_MisActividades ini = new Interfaz_MisActividades(c);
+        ini.setLocationRelativeTo(this);
+        ini.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

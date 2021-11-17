@@ -148,5 +148,10 @@ public class Camping {
             }
         }
     }
+    
+    public void anyadeAct(Actividad a)
+    {
+        actividades.add(a);
+    }
 }
 
