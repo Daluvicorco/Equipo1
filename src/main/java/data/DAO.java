@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Time;
 import java.util.TimeZone;
 
 /**
@@ -30,11 +31,12 @@ public class DAO {
         try {
          Class.forName("com.mysql.cj.jdbc.Driver"); // Driver de mysql
          // Conexión usando usuario y clave de administrador de la BD
-         conexionBD = DriverManager.getConnection(bd, "root", "victorserranoQL10");
+         conexionBD = DriverManager.getConnection(bd,"root","victorserranoQL10");
         } catch (Exception e) { // Error en la conexión con la BD
          System.out.println("Error de conexión " + e.getMessage());
         }
         
+        /*
         ResultSet resultados = null;
         try {
             String con;
@@ -47,7 +49,7 @@ public class DAO {
             System.out.print(id);
            }
         } catch (Exception e) { // Error en al realizar la consulta
-         System.out.println("Error en la petición a la BD");
+         System.out.println("Error en la petición a la BD");    
         }
         
         ResultSet resultados2 = null;
@@ -62,5 +64,20 @@ public class DAO {
         catch(Exception e){ // Error al realizar la operación
          System.out.println("No se ha completado la operación");
         }
+        */
+    }
+    
+    public void añadirActividad(int id,String tipo,String tit,Time horaini,Time horafin)
+    {        
+        try {
+            Statement s = conexionBD.createStatement();
+            // Operación SQL sobre la base de datos
+            String con = "INSERT INTO actividad (id,tipo,nombre,horaInicio,horaFin) VALUES (1,'" + tipo +"','"+ tit+ "','"+horaini+"','"+horafin+"')";
+            PreparedStatement preparedStmt = conexionBD.prepareStatement(con);
+            preparedStmt.executeUpdate();
+        }
+        catch(Exception e){ // Error al realizar la operación
+         System.out.println("No se ha podido insertar la actividad" + e);
+        } 
     }
 }

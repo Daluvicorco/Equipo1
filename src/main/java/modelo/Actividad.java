@@ -18,6 +18,7 @@ public class Actividad {
     private Time horaFin;
     private ArrayList<Cliente> participantes;
     private Cliente ganador;
+    private static int numActividades=0;
     
     public Actividad(String tipo, String n, Time hI, Time hF) {
         participantes = new ArrayList();
@@ -25,6 +26,7 @@ public class Actividad {
         nombre = n;
         horaInicio = hI;
         horaFin = hF;
+        aumentarActividad();
     }
 
     public Cliente getGanador() {
@@ -84,5 +86,14 @@ public class Actividad {
 
     public void removeParticipante(Cliente cli) {
         participantes.remove(cli);
+    }
+    public static void aumentarActividad()
+    {
+        numActividades++;
+    }
+    
+    public static int getNumActividades()
+    {
+        return numActividades;
     }
 }

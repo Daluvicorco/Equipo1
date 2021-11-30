@@ -22,7 +22,6 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
     private Controlador_Camping c;
     public Interfaz_IniciarSesion() {
         initComponents();
-        DAO d = new DAO();
         c = new Controlador_Camping();
         setLocationRelativeTo(this);
     }

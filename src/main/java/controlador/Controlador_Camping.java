@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import data.DAO;
 import data.Detalles_Parcela;
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
@@ -26,10 +27,11 @@ import modelo.Reserva;
 public class Controlador_Camping{
     Camping c;
     factory f;
-    
+    DAO d;
     public Controlador_Camping() {
         c = new Camping();
         f = new factory();
+        d = new DAO();
     }
     
 
@@ -234,6 +236,7 @@ public class Controlador_Camping{
     
     public void anyadeActividad(String tipo,String tit,Time horaini,Time horafin){
         Actividad x = new Actividad(tipo,tit,horaini,horafin);
+        d.añadirActividad(Actividad.getNumActividades(),tipo,tit,horaini,horafin);
         c.anyadeAct(x);
     }
 
