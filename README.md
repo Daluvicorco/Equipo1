@@ -33,3 +33,7 @@ CREATE TABLE `participa_en` (
   CONSTRAINT `actividad_FK` FOREIGN KEY (`actividad`) REFERENCES `actividad` (`id`),
   CONSTRAINT `cliente_FK` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+/*
+Victor Serrano Hernández: Creada funcion de introducir actividad a la base de datos
+*/
