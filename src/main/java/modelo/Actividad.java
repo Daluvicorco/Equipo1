@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public class Actividad {
+    private int id;
     private String tipo;
     private String nombre;
     private Time horaInicio;
@@ -26,6 +27,7 @@ public class Actividad {
         nombre = n;
         horaInicio = hI;
         horaFin = hF;
+        id = numActividades;
         aumentarActividad();
     }
 
@@ -89,11 +91,20 @@ public class Actividad {
     }
     public static void aumentarActividad()
     {
-        numActividades++;
+        numActividades+=1;
     }
     
     public static int getNumActividades()
     {
         return numActividades;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 }

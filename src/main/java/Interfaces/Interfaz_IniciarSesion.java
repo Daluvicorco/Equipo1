@@ -143,12 +143,14 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
 
     private void botonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClienteActionPerformed
         Interfaz_Cliente ven;
-            if(c.crearCliente(campoUsuario.getText(),campoContraseña.getText())==true ){
+            if(!campoUsuario.getText().isBlank() && !campoContraseña.getText().isBlank()){
+                //c.crearCliente(campoUsuario.getText(),campoContraseña.getText());
                 Interfaz_Gestor gest = new Interfaz_Gestor(c);
                 gest.setLocationRelativeTo(this);
                 gest.setVisible(true);
                 this.dispose();
-            } else {
+            }
+            else {
                 ven = new Interfaz_Cliente(c);
                 ven.setLocationRelativeTo(this);
                 ven.setVisible(true);

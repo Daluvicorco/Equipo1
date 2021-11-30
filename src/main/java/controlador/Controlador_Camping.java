@@ -236,7 +236,7 @@ public class Controlador_Camping{
     
     public void anyadeActividad(String tipo,String tit,Time horaini,Time horafin){
         Actividad x = new Actividad(tipo,tit,horaini,horafin);
-        d.añadirActividad(Actividad.getNumActividades(),tipo,tit,horaini,horafin);
+        d.añadirActividad(x.getId(),tipo,tit,horaini,horafin);
         c.anyadeAct(x);
     }
 

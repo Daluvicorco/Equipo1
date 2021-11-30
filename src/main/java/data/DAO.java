@@ -72,7 +72,7 @@ public class DAO {
         try {
             Statement s = conexionBD.createStatement();
             // Operación SQL sobre la base de datos
-            String con = "INSERT INTO actividad (id,tipo,nombre,horaInicio,horaFin) VALUES (1,'" + tipo +"','"+ tit+ "','"+horaini+"','"+horafin+"')";
+            String con = "INSERT INTO actividad (id,tipo,nombre,horaInicio,horaFin) VALUES ("+id+",'" + tipo +"','"+ tit+ "','"+horaini+"','"+horafin+"')";
             PreparedStatement preparedStmt = conexionBD.prepareStatement(con);
             preparedStmt.executeUpdate();
         }
