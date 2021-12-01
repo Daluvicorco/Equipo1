@@ -145,10 +145,12 @@ public class CampingTest {
         System.out.println("addCarrito");
         Parcela parcela = new Parcela(1,250,true,8,7);
         Camping instance = new Camping();
+        int oldsize = carrito.size();
         instance.addCarrito((Object)parcela);
         // TODO review the generated test code and remove the default call to fail.
+        
         ArrayList<Parcela> oldcarrito = carrito;
-        assertTrue(carrito.size()==(oldcarrito.size()+1));
+        assertTrue(oldsize==(carrito.size()-1));
         assertTrue(carrito.contains(parcela));
     }
 
