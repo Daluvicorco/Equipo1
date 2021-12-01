@@ -22,7 +22,7 @@ public class Cliente {
     private ArrayList<Reserva> reservas; //Transformar a ArrayList
     
     public Cliente(String n, String d, float mT) {
-        nombre = n;
+        nombre = n; 
         dni = d;
         metrosTienda = mT;
         reservas = new ArrayList<Reserva>();

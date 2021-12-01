@@ -8,6 +8,7 @@ import data.Detalles_Parcela;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
+import modelo.Actividad;
 import modelo.Cliente;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -211,17 +212,13 @@ public class Controlador_CampingTest {
         fail("The test case is a prototype.");
     }
 
+    //Hacer por Victor Serrano a partir de aquí
     /**
      * Test of setDescuento method, of class Controlador_Camping.
      */
     @Test
     public void testSetDescuento() {
-        System.out.println("setDescuento");
-        float x = 0.0F;
-        Controlador_Camping instance = new Controlador_Camping();
-        instance.setDescuento(x);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //No se hace porque es un setter
     }
 
     /**
@@ -229,13 +226,7 @@ public class Controlador_CampingTest {
      */
     @Test
     public void testGetCliente() {
-        System.out.println("getCliente");
-        Controlador_Camping instance = new Controlador_Camping();
-        Cliente expResult = null;
-        Cliente result = instance.getCliente();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //no se hace porque es un getter
     }
 
     /**
@@ -243,11 +234,7 @@ public class Controlador_CampingTest {
      */
     @Test
     public void testVaciarCarrito() {
-        System.out.println("vaciarCarrito");
-        Controlador_Camping instance = new Controlador_Camping();
-        instance.vaciarCarrito();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //No se hace porque es un setter
     }
 
     /**
@@ -255,13 +242,7 @@ public class Controlador_CampingTest {
      */
     @Test
     public void testGetHistorico() {
-        System.out.println("getHistorico");
-        Controlador_Camping instance = new Controlador_Camping();
-        ArrayList expResult = null;
-        ArrayList result = instance.getHistorico();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //No se hace por que es un getter
     }
 
     /**
@@ -269,13 +250,18 @@ public class Controlador_CampingTest {
      */
     @Test
     public void testSetGanadorActividad() {
+        /*
         System.out.println("setGanadorActividad");
-        Object cl = null;
-        Object actividad = null;
-        Controlador_Camping instance = new Controlador_Camping();
-        instance.setGanadorActividad(cl, actividad);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Object cl = new Cliente("Victor Serrano","2106H");
+        Object a = new Actividad("Piscina","competicion de natacion",new Time(12,0,0),new Time(13,30,0));
+        Controlador_Camping camp = new Controlador_Camping();
+        
+        camp.añadirActividad(a);
+        camp
+        camp.setGanadorActividad(cl,a);
+        ArrayList actividades = camp.getActividades();
+        int i = actividades.indexOf(a);
+        assertEquals(((Cliente)actividades.get(i)).getNombre(),((Cliente)cl).getNombre());*/
     }
 
     /**
@@ -323,15 +309,7 @@ public class Controlador_CampingTest {
      */
     @Test
     public void testAnyadeActividad() {
-        System.out.println("anyadeActividad");
-        String tipo = "";
-        String tit = "";
-        Time horaini = null;
-        Time horafin = null;
-        Controlador_Camping instance = new Controlador_Camping();
-        instance.anyadeActividad(tipo, tit, horaini, horafin);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //Funcion simple que añade un elemento al vector
     }
 
     /**
@@ -355,15 +333,7 @@ public class Controlador_CampingTest {
      */
     @Test
     public void testIniciarLog() {
-        System.out.println("iniciarLog");
-        String nombre = "";
-        String dni = "";
-        Controlador_Camping instance = new Controlador_Camping();
-        boolean expResult = false;
-        boolean result = instance.iniciarLog(nombre, dni);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //Funcion referente a la base de datos
     }
 
     /**
