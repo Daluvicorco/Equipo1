@@ -51,7 +51,7 @@ public class DAO {
         } catch (Exception e) { // Error en al realizar la consulta
          System.out.println("Error en la petición a la BD");    
         }
-        
+        /*
         ResultSet resultados2 = null;
         try {
             int id = 10; // Valor a insertar
@@ -80,4 +80,58 @@ public class DAO {
          System.out.println("No se ha podido insertar la actividad" + e);
         } 
     }
+    
+    public void seleccionarGanadorActividad(String dni,int id)
+    {
+        try {
+            Statement s = conexionBD.createStatement();
+            // Operación SQL sobre la base de datos
+            String con = "UPDATE actividad SET ganador ='"+ dni +"' WHERE id =" + id +";";
+            PreparedStatement preparedStmt = conexionBD.prepareStatement(con);
+            preparedStmt.executeUpdate();
+        }
+        catch(Exception e){ // Error al realizar la operación
+         System.out.println("No se ha podido insertar la actividad" + e);
+        } 
+    }
+    
+    public void crearCliente(String dni,String nombre)
+    {
+        try {
+            Statement s = conexionBD.createStatement();
+            // Operación SQL sobre la base de datos
+            String con = "INSERT INTO cliente (dni,nombre) VALUES ('"+dni+"','" + nombre +"')";
+            PreparedStatement preparedStmt = conexionBD.prepareStatement(con);
+            preparedStmt.executeUpdate();
+        }
+        catch(Exception e){ // Error al realizar la operación
+         System.out.println("No se ha podido insertar el cliente" + e);
+        } 
+    }
+
+    public boolean logCliente(String nombre, String dni) {
+        ResultSet resultados = null;
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            // Consulta SQL
+            con = "select count(*) from cliente WHERE dni ='"+dni+"' AND nombre='" + nombre +"';";
+            resultados = s.executeQuery(con);
+            while (resultados.next()) {
+            int id = resultados.getInt("count(*)");
+            if(id > 0 )
+                return true;
+            else
+                return false;
+           }
+        } catch (Exception e) { // Error en al realizar la consulta
+         System.out.println("Error en la petición a la BD");    
+        }
+        return false;
+     }
 }
+//String con = "select count(*) from cliente WHERE dni ='"+dni+"' AND nombre='" + nombre +"';";
+/*if(Integer.parseInt(con) > 0 )
+                return true;
+            else
+                return false;*/

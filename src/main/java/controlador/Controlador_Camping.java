@@ -193,6 +193,9 @@ public class Controlador_Camping{
 
     public void setGanadorActividad(Object cl, Object actividad) {
        c.setGanadorActividad(cl,actividad);
+       Actividad act = (Actividad) actividad;
+       Cliente client = (Cliente) cl;
+       d.seleccionarGanadorActividad(client.getDni(), act.getId());
     }
 
     public void añadirActividad(Object actividad) {
@@ -241,12 +244,19 @@ public class Controlador_Camping{
     }
 
     public boolean crearCliente(String nombre, String dni) {
-        Object o = (f.crearCliente(nombre,dni));
+        Object o = (Object)f.crearCliente(nombre,dni);
+        c.setCliente((Cliente)o);
+        
         if ( o instanceof Gestor){
             c.setGestor((Gestor)o);
             return true;
         }
+        d.crearCliente(dni, nombre);
         c.setCliente((Cliente)o);
         return false;
+    }
+
+    public boolean iniciarLog(String nombre, String dni) {
+        return d.logCliente(nombre,dni);
     }
 }

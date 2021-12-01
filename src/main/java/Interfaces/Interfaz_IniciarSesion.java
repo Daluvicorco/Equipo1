@@ -144,24 +144,38 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
     private void botonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClienteActionPerformed
         Interfaz_Cliente ven;
             if(!campoUsuario.getText().isBlank() && !campoContraseña.getText().isBlank()){
-                //c.crearCliente(campoUsuario.getText(),campoContraseña.getText());
-                Interfaz_Gestor gest = new Interfaz_Gestor(c);
-                gest.setLocationRelativeTo(this);
-                gest.setVisible(true);
-                this.dispose();
+                if(c.crearCliente(campoUsuario.getText(),campoContraseña.getText())==true)
+                {
+                    Interfaz_Gestor gest = new Interfaz_Gestor(c);
+                    gest.setLocationRelativeTo(this);
+                    gest.setVisible(true);
+                    this.dispose();
+                }
+                else
+                {
+                    ven = new Interfaz_Cliente(c);
+                    ven.setLocationRelativeTo(this);
+                    ven.setVisible(true);
+                    this.dispose();
+                }
             }
-            else {
+        
+    }//GEN-LAST:event_botonClienteActionPerformed
+
+    private void botonGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGestorActionPerformed
+        if(!campoUsuario.getText().isBlank() && !campoContraseña.getText().isBlank())
+        {
+            if(c.iniciarLog(campoUsuario.getText(),campoContraseña.getText()))
+            {
+                Interfaz_Cliente ven;
                 ven = new Interfaz_Cliente(c);
                 ven.setLocationRelativeTo(this);
                 ven.setVisible(true);
                 this.dispose();
             }
-
-        
-    }//GEN-LAST:event_botonClienteActionPerformed
-
-    private void botonGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGestorActionPerformed
-        
+            else
+                System.out.println("No existe un usuario con esas credenciales");
+        }
     }//GEN-LAST:event_botonGestorActionPerformed
 
     private void campoContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoContraseñaActionPerformed
