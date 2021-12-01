@@ -36,4 +36,13 @@ CREATE TABLE `participa_en` (
 
 /*
 Victor Serrano Hernández: Creada funcion de introducir actividad a la base de datos
+
+Trabajo practica 6:
+Calcular_Precio => Enrique Pallás
+Controlador_Camping => Victor Serrano, Alejandro Granell
+Camping => Aleix Maroto
+Reserva => Enrique Pallás
+Historico => 
+
+
 */
