@@ -259,4 +259,8 @@ public class Controlador_Camping{
     public boolean iniciarLog(String nombre, String dni) {
         return d.logCliente(nombre,dni);
     }
+    
+    public boolean isBlank(String text){
+        return (text.equals("") || text.equals(null) || text.trim().length() == 0);
+    }
 }

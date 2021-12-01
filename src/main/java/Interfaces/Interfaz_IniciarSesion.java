@@ -143,7 +143,8 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
 
     private void botonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClienteActionPerformed
         Interfaz_Cliente ven;
-            if(!campoUsuario.getText().isBlank() && !campoContraseña.getText().isBlank()){
+            //if(!campoUsuario.getText().isBlank() && !campoContraseña.getText().isBlank()){
+            if(!c.isBlank(campoUsuario.getText()) && !c.isBlank(campoContraseña.getText())){
                 if(c.crearCliente(campoUsuario.getText(),campoContraseña.getText())==true)
                 {
                     Interfaz_Gestor gest = new Interfaz_Gestor(c);
@@ -163,7 +164,8 @@ public class Interfaz_IniciarSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_botonClienteActionPerformed
 
     private void botonGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGestorActionPerformed
-        if(!campoUsuario.getText().isBlank() && !campoContraseña.getText().isBlank())
+        //if(!campoUsuario.getText().isBlank() && !campoContraseña.getText().isBlank())
+        if(!c.isBlank(campoUsuario.getText()) && !c.isBlank(campoContraseña.getText()))
         {
             if(c.iniciarLog(campoUsuario.getText(),campoContraseña.getText()))
             {
