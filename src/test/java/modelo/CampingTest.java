@@ -4,6 +4,7 @@
  */
 package modelo;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import org.junit.jupiter.api.AfterEach;
@@ -18,8 +19,20 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author nengo
  */
 public class CampingTest {
+    ArrayList<Parcela> parcelas = new ArrayList<>(); //Cliente con todas las parcelas existentes
+    Cliente cliente; //Cliente actual
+    Gestor gestor;
+    ArrayList<Reserva> reservas = new ArrayList<Reserva>(); //ArrayList con todas las reservas
+    ArrayList<Parcela> carrito = new ArrayList<Parcela>(); //ArrayList con todas las parcelas dentro del carrito
+    ArrayList<Actividad> actividades = new ArrayList(); //ArrayList con todas las actividades existentes
+    ArrayList<Cliente> clientes = new ArrayList<Cliente>(); //ArrayList con todos los clientes existentes del programa
+    Date fechainicio; //Atributo temporal sobre fecha inicial reserva
+    Date fechafin; //Atributo temporal sobre fecha fin reserva
+    float metros; //Atributo temporal sobre metros tienda campaña
+    Historico h; //Atributo para el historico
     
     public CampingTest() {
+        
     }
     
     @BeforeAll
@@ -32,6 +45,24 @@ public class CampingTest {
     
     @BeforeEach
     public void setUp() {
+//        Parcela p = new Parcela(0,300,true,12,10);
+//        Parcela p2 = new Parcela(1,250,true,8,7);
+//        Parcela p3 = new Parcela(2,150,false,5,4);
+//        cliente = new Cliente("Victor Serrano","2106H");
+//        parcelas.add(p2);
+//        parcelas.add(p3);
+//        Actividad a1 = new Actividad("Piscina","competicion de natacion",new Time(12,0,0),new Time(13,30,0));
+//        Actividad a2 = new Actividad("Fronton","competicion de fronton",new Time(14,0,0),new Time(15,30,0));
+//        Actividad a3 = new Actividad("Juegos de mesa","competicion de parchis",new Time(16,30,0),new Time(18,0,0));
+//        actividades.add(a1);
+//        actividades.add(a2);
+//        actividades.add(a3);
+//        Cliente cliente = new Cliente("Gonzalo Montes","12345678F");
+//        Reserva reserva = new Reserva(new Date(2021, 11, 18), new Date(2021, 12, 10), cliente);
+//        reserva.setParcelas_reservadas(parcelas);
+//        reservas.add(reserva);
+//        h = new Historico(cliente, reservas);
+        
     }
     
     @AfterEach
@@ -83,11 +114,13 @@ public class CampingTest {
     @Test
     public void testSetCliente() {
         System.out.println("setCliente");
-        Cliente c = null;
+        Cliente c = new Cliente("Gonzalo Montes","12345678F");
         Camping instance = new Camping();
         instance.setCliente(c);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(instance.getCliente());
+        assertEquals(c, instance.getCliente());
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -110,11 +143,13 @@ public class CampingTest {
     @Test
     public void testAddCarrito() {
         System.out.println("addCarrito");
-        Object parcela = null;
+        Parcela parcela = new Parcela(1,250,true,8,7);
         Camping instance = new Camping();
-        instance.addCarrito(parcela);
+        instance.addCarrito((Object)parcela);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<Parcela> oldcarrito = carrito;
+        assertTrue(carrito.size()==(oldcarrito.size()+1));
+        assertTrue(carrito.contains(parcela));
     }
 
     /**
