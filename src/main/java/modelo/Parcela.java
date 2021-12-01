@@ -14,7 +14,7 @@ import data.Detalles_Parcela;
 public class Parcela
 {
     private int identificador;
-    private float metros_cuadrados;
+    private float metros_cuadrados; 
     private boolean tiene_luz;
     private float precio_dia;
     static private float descuento_parcela;
