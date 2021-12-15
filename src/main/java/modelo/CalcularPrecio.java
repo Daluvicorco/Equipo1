@@ -20,13 +20,13 @@ public class CalcularPrecio {
     }
     
     public float getPrecio() {
-        long diaEnt = reserva.getFecha_real_entrada().getTime() / 86400000;
-        long diaSal = reserva.getFecha_real_salida().getTime() / 86400000;
-        long diasEstancia = diaSal - diaEnt;
+        long diff = (reserva.getFecha_fin_reserva().getTime() - reserva.getFecha_inicio_reserva().getTime())/86400000;
+
+
         
-        if(diasEstancia >= 15) {
-          return diasEstancia * parcela.getPrecio_dia() * parcela.getDescuento_parcela();
+        if(diff >= 15) {
+          return diff * parcela.getPrecio_dia() * (100-parcela.getDescuento_parcela())/100;
         }
-        return diasEstancia * parcela.getPrecio_dia();
+        return diff * parcela.getPrecio_dia();
     }
 }
