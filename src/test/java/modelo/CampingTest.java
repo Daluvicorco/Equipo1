@@ -145,13 +145,13 @@ public class CampingTest {
         System.out.println("addCarrito");
         Parcela parcela = new Parcela(1,250,true,8,7);
         Camping instance = new Camping();
-        int oldsize = carrito.size();
-        instance.addCarrito((Object)parcela);
+        int oldsize = instance.getCarrito().size();
+        instance.getCarrito().add(parcela);
         // TODO review the generated test code and remove the default call to fail.
         
-        ArrayList<Parcela> oldcarrito = carrito;
-        assertTrue(oldsize==(carrito.size()-1));
-        assertTrue(carrito.contains(parcela));
+        ArrayList<Parcela> oldcarrito = instance.getCarrito();
+        assertTrue(oldsize==(instance.getCarrito().size()-1));
+        assertTrue(instance.getCarrito().contains(parcela));
     }
 
     /**
@@ -202,11 +202,14 @@ public class CampingTest {
     @Test
     public void testEliminarParcelaCarrito() {
         System.out.println("eliminarParcelaCarrito");
-        Parcela parcela = null;
+        Parcela parcela = new Parcela(1,250,true,8,7);
         Camping instance = new Camping();
+        instance.addCarrito(parcela);
+        int oldsize = instance.getCarrito().size();
         instance.eliminarParcelaCarrito(parcela);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(oldsize==(instance.getCarrito().size()+1));
+        assertFalse(instance.getCarrito().contains(parcela));
     }
 
     /**
@@ -230,12 +233,15 @@ public class CampingTest {
     @Test
     public void testGetMetrosCarrito() {
         System.out.println("getMetrosCarrito");
+        Parcela parcela = new Parcela(1,250,true,8,7);
+        Parcela parcela2 = new Parcela(1,150,true,8,7);
         Camping instance = new Camping();
-        float expResult = 0.0F;
+        instance.addCarrito(parcela);
+        instance.addCarrito(parcela2);
+        float expResult = 400;
         float result = instance.getMetrosCarrito();
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -339,12 +345,13 @@ public class CampingTest {
     @Test
     public void testSetGanadorActividad() {
         System.out.println("setGanadorActividad");
-        Object cl = null;
-        Object actividad = null;
         Camping instance = new Camping();
-        instance.setGanadorActividad(cl, actividad);
+        Cliente cliente = new Cliente("Gonzalo Montes","12345678F");
+        Actividad a1 = new Actividad("Piscina","competicion de natacion",new Time(12,0,0),new Time(13,30,0));
+        instance.anyadeAct(a1);
+        instance.setGanadorActividad(cliente, a1);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(a1.getGanador().equals(cliente));
     }
 
     /**
