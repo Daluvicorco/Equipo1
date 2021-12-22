@@ -24,7 +24,6 @@ public class Reserva{
     public Reserva(Date fecha_inicio_reserva, Date fecha_fin_reserva, Cliente cliente_reserva) {
         this.fecha_inicio_reserva = fecha_inicio_reserva;
         this.fecha_fin_reserva = fecha_fin_reserva;
-        this.parcelas_reservadas = parcelas_reservadas;
         this.cliente_reserva = cliente_reserva;
         parcelas_reservadas = new ArrayList<Parcela>();
     }
