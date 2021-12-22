@@ -29,10 +29,6 @@ public class Reserva{
         parcelas_reservadas = new ArrayList<Parcela>();
     }
 
-    /*public Reserva() {
-        parcelas_reservadas = new ArrayList<Parcela>();
-    }*/
-    
     public float getMetros(){
         float count =0;
         for (int i=0;i<parcelas_reservadas.size();i++){
