@@ -261,6 +261,8 @@ public class Controlador_Camping{
     }
     
     public boolean isBlank(String text){
-        return (text.equals("") || text.equals(null) || text.trim().length() == 0);
+        try {
+            return (text.equals("") || text.trim().length() == 0);
+        } catch (NullPointerException e){ return true; }
     }
 }
