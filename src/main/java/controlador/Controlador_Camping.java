@@ -7,6 +7,7 @@ package controlador;
 
 import data.DAO;
 import data.Detalles_Parcela;
+import java.io.Serializable;
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 import static java.lang.Float.parseFloat;
@@ -24,7 +25,7 @@ import modelo.Reserva;
  *
  * @author luisc
  */
-public class Controlador_Camping{
+public class Controlador_Camping implements Serializable{
     Camping c;
     factory f;
     DAO d;
@@ -118,7 +119,7 @@ public class Controlador_Camping{
         try {
         if((smetros != null && !smetros.equals("") && !contieneLetras(smetros)))
         {
-           smetros = smetros.replaceAll(",",".");
+           smetros = smetros.replace(",",".");
            metros= parseFloat(smetros);
            if(llegada != null && salida != null && metros != 0)
            {
