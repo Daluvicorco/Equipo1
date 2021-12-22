@@ -115,7 +115,8 @@ public class Controlador_Camping{
         boolean ok=true;
         Float metros;
         //if((!smetros.isBlank() || !contieneLetras(smetros)))
-        if((smetros != null || !smetros.isEmpty() || !contieneLetras(smetros)))
+        try {
+        if((smetros != null && !smetros.equals("") && !contieneLetras(smetros)))
         {
            smetros = smetros.replaceAll(",",".");
            metros= parseFloat(smetros);
@@ -134,6 +135,7 @@ public class Controlador_Camping{
         }
         else 
             ok=false;
+        } catch (NullPointerException e){ok=false;}
         
         return ok;        
     }
